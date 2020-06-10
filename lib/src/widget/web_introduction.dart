@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/util/screen_util.dart';
 import 'package:hosting/src/widget/web_point.dart';
@@ -26,13 +27,8 @@ class WebIntroductionDesktop extends StatelessWidget {
       color: GREY,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Expanded(
-            child: SizedBox(
-
-            ),
-          ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -45,7 +41,7 @@ class WebIntroductionDesktop extends StatelessWidget {
 
               WebPoint(
                 name: 'SELECT A PLAN',
-                description: 'Starting at \$9.99 per month',
+                description: 'Starting at \$7.99 per month',
                 asset: 'assets/images/price.jpg',
                 index: 2,
               ),
@@ -59,9 +55,22 @@ class WebIntroductionDesktop extends StatelessWidget {
             ],
           ),
 
-          Expanded(
-            child: SizedBox(
+          OutlineButton(
+            onPressed: () {},
+            highlightedBorderColor: Colors.transparent,
+            highlightElevation: 0.0,
+            hoverColor: Colors.yellow[800].withOpacity(0.5),
+            child: Text(
+                'CREATE YOUR SERVER',
+                style: GoogleFonts.barlow(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold
+                )
+            ),
 
+            borderSide: BorderSide(
+              width: 3.0,
+                color: BLUE_ACCENT
             ),
           ),
         ],
@@ -92,7 +101,7 @@ class WebIntroductionMobile extends StatelessWidget {
 
           WebPoint(
             name: 'SELECT A PLAN',
-            description: 'Starting at \$9.99 per month',
+            description: 'Starting at \$7.99 per month',
             asset: 'assets/images/price.jpg',
             index: 2,
           ),
@@ -102,6 +111,25 @@ class WebIntroductionMobile extends StatelessWidget {
             description: 'Your rules, your friends, your game',
             asset:      'assets/images/play.jpg',
             index: 3,
+          ),
+
+          OutlineButton(
+            onPressed: () {},
+            highlightedBorderColor: Colors.transparent,
+            highlightElevation: 0.0,
+            hoverColor: Colors.yellow[800].withOpacity(0.5),
+            child: Text(
+                'CREATE YOUR SERVER',
+                style: GoogleFonts.barlow(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold
+                )
+            ),
+
+            borderSide: BorderSide(
+                width: 3.0,
+                color: BLUE_ACCENT
+            ),
           ),
         ],
       ),

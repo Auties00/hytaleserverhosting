@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -58,7 +56,7 @@ class WebNavigationBar extends StatelessWidget {
                 color: BLUE,
                 onPressed: () {},
                 child:  Text(
-                    'LOG IN',
+                    'GET STARTED',
                     style: GoogleFonts.barlow(
                         color: Colors.white,
                         fontWeight: FontWeight.bold

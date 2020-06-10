@@ -12,7 +12,7 @@ class HytalesHostingApplication extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Hytales Hosting',
         theme: ThemeData(
-          primarySwatch: Colors.red,
+          primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: HomePage()
