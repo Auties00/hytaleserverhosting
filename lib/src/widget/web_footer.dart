@@ -52,7 +52,7 @@ class WebFooterMobile extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       width: double.maxFinite,
-      height: screen.setHeight(200.0),
+      height: screen.setHeight(150.0),
       color: BLUE_ACCENT,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

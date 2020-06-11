@@ -33,7 +33,7 @@ class WebPricingDesktop extends StatelessWidget {
               children: [
                 WebPricingItem(
                     title: 'STONE',
-                    price: '\$7.99',
+                    price: '€7.99',
                     players: '12 Players',
                     space: '25',
                     ram: '1024',
@@ -42,7 +42,7 @@ class WebPricingDesktop extends StatelessWidget {
 
                 WebPricingItem(
                     title: 'COAL',
-                    price: '\$14.99',
+                    price: '€14.99',
                     players: '24 Players',
                     space: '50GB',
                     ram: '2048',
@@ -51,7 +51,7 @@ class WebPricingDesktop extends StatelessWidget {
 
                 WebPricingItem(
                     title: 'GOLD',
-                    price: '\$19.99',
+                    price: '€19.99',
                     players: '48 Players',
                     space: '50GB',
                     ram: '4096',
@@ -65,7 +65,7 @@ class WebPricingDesktop extends StatelessWidget {
               children: [
                 WebPricingItem(
                     title: 'REDSTONE',
-                    price: '\$29.99',
+                    price: '€29.99',
                     players: '72 Players',
                     space: '80GB',
                     ram: '6144',
@@ -75,7 +75,7 @@ class WebPricingDesktop extends StatelessWidget {
 
                 WebPricingItem(
                     title: 'DIAMOND',
-                    price: '\$39.99',
+                    price: '€39.99',
                     players: '96 Players',
                     space: '100GB',
                     ram: '8192',
@@ -84,7 +84,7 @@ class WebPricingDesktop extends StatelessWidget {
 
                 WebPricingItem(
                     title: 'EMERALD',
-                    price: '\$49.99',
+                    price: '€49.99',
                     players: '144 Players',
                     space: '150GB',
                     ram: '12288',
@@ -115,16 +115,16 @@ class WebPricingMobile extends StatelessWidget {
               children: [
                 WebPricingItem(
                     title: 'STONE',
-                    price: '\$9.99',
+                    price: '€7.99',
                     players: '12 Players',
-                    space: '50GB',
+                    space: '25',
                     ram: '1024',
                     big: true
                 ),
 
                 WebPricingItem(
                     title: 'COAL',
-                    price: '\$9.99',
+                    price: '€14.99',
                     players: '24 Players',
                     space: '50GB',
                     ram: '2048',
@@ -138,7 +138,7 @@ class WebPricingMobile extends StatelessWidget {
             children: [
               WebPricingItem(
                   title: 'GOLD',
-                  price: '\$9.99',
+                  price: '€19.99',
                   players: '48 Players',
                   space: '50GB',
                   ram: '4096',
@@ -147,9 +147,9 @@ class WebPricingMobile extends StatelessWidget {
 
               WebPricingItem(
                   title: 'REDSTONE',
-                  price: '\$9.99',
+                  price: '€29.99',
                   players: '72 Players',
-                  space: '50GB',
+                  space: '80GB',
                   ram: '6144',
                   big: true
               ),
@@ -162,18 +162,18 @@ class WebPricingMobile extends StatelessWidget {
               children: [
                 WebPricingItem(
                     title: 'DIAMOND',
-                    price: '\$9.99',
+                    price: '€39.99',
                     players: '96 Players',
-                    space: '50GB',
+                    space: '100GB',
                     ram: '8192',
                     big: true
                 ),
 
                 WebPricingItem(
                     title: 'EMERALD',
-                    price: '\$9.99',
+                    price: '€49.99',
                     players: '144 Players',
-                    space: '50GB',
+                    space: '150GB',
                     ram: '12288',
                     big: true
                 ),
@@ -199,16 +199,16 @@ class WebPricingSmall extends StatelessWidget {
         children: [
           WebPricingItem(
               title: 'STONE',
-              price: '\$9.99',
+              price: '€7.99',
               players: '12 Players',
-              space: '50GB',
+              space: '25',
               ram: '1024',
               big: true
           ),
 
           WebPricingItem(
               title: 'COAL',
-              price: '\$9.99',
+              price: '€14.99',
               players: '24 Players',
               space: '50GB',
               ram: '2048',
@@ -217,7 +217,7 @@ class WebPricingSmall extends StatelessWidget {
 
           WebPricingItem(
               title: 'GOLD',
-              price: '\$9.99',
+              price: '€19.99',
               players: '48 Players',
               space: '50GB',
               ram: '4096',
@@ -226,27 +226,27 @@ class WebPricingSmall extends StatelessWidget {
 
           WebPricingItem(
               title: 'REDSTONE',
-              price: '\$9.99',
+              price: '€29.99',
               players: '72 Players',
-              space: '50GB',
+              space: '80GB',
               ram: '6144',
               big: true
           ),
 
           WebPricingItem(
               title: 'DIAMOND',
-              price: '\$9.99',
+              price: '€39.99',
               players: '96 Players',
-              space: '50GB',
+              space: '100GB',
               ram: '8192',
               big: true
           ),
 
           WebPricingItem(
               title: 'EMERALD',
-              price: '\$9.99',
+              price: '€49.99',
               players: '144 Players',
-              space: '50GB',
+              space: '150GB',
               ram: '12288',
               big: true
           ),

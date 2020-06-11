@@ -34,14 +34,14 @@ class WebIntroductionDesktop extends StatelessWidget {
             children: [
               WebPoint(
                 name: 'CHOOSE A SERVER',
-                description: 'Over six servers all of the world',
+                description: 'Twenty-six servers over the globe',
                 asset:  'assets/images/location.jpg',
                 index: 1,
               ),
 
               WebPoint(
                 name: 'SELECT A PLAN',
-                description: 'Starting at \$7.99 per month',
+                description: 'Starting at €7.99 per month',
                 asset: 'assets/images/price.jpg',
                 index: 2,
               ),
@@ -94,14 +94,14 @@ class WebIntroductionMobile extends StatelessWidget {
         children: [
           WebPoint(
             name: 'CHOOSE A SERVER',
-            description: 'Over six servers all of the world',
+            description: 'Twenty-six servers over the globe',
             asset:  'assets/images/location.jpg',
             index: 1,
           ),
 
           WebPoint(
             name: 'SELECT A PLAN',
-            description: 'Starting at \$7.99 per month',
+            description: 'Starting at €7.99 per month',
             asset: 'assets/images/price.jpg',
             index: 2,
           ),

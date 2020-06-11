@@ -31,14 +31,14 @@ class WebFeaturesDesktop extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               WebFeatureItem(
-                name: 'ALWAYS\nPROTECTED',
-                description: 'Our services utilize a DDoS protected network that can handle attacks up to 480 Gbps. Attacks are no longer a worry!',
+                name: 'FREE\nTRIAL',
+                description: 'Still not convinced? Try our service for free for eight hours, no credit card required. Not satisfied? Cancel with no charge!',
                 asset: 'assets/images/ddos.png',
               ),
 
               WebFeatureItem(
                 name: 'LOW \nLATENCY',
-                description: 'Our six different data center locations around the globe allow for the lowest possible latency.',
+                description: 'Our twenty-six different data center locations around the globe allow for the lowest possible latency.',
                 asset: 'assets/images/ethernet.png',
               ),
 
@@ -94,14 +94,14 @@ class WebFeaturesMobile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               WebFeatureItem(
-                name: 'ALWAYS\nPROTECTED',
-                description: 'Our services utilize a DDoS protected network that can handle attacks up to 480 Gbps. Attacks are no longer a worry!',
+                name: 'FREE\nTRIAL',
+                description: 'Still not convinced? Try our service for free for eight hours, no credit card required! Not satisfied? Cancel with no charge!',
                 asset: 'assets/images/ddos.png',
               ),
 
               WebFeatureItem(
                 name: 'LOW \nLATENCY',
-                description: 'Our six different data center locations around the globe allow for the lowest possible latency.',
+                description: 'Our twenty-six different data center locations around the globe allow for the lowest possible latency.',
                 asset: 'assets/images/ethernet.png',
               ),
             ],
@@ -159,14 +159,14 @@ class WebFeaturesSmall extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           WebFeatureItem(
-            name: 'ALWAYS\nPROTECTED',
-            description: 'Our services utilize a DDoS protected network that can handle attacks up to 480 Gbps. Attacks are no longer a worry!',
+            name: 'FREE\nTRIAL',
+            description: 'Still not convinced? Try our service for free for eight hours, no credit card required! Not satisfied? Cancel with no charge!',
             asset: 'assets/images/ddos.png',
           ),
 
           WebFeatureItem(
             name: 'LOW \nLATENCY',
-            description: 'Our six different data center locations around the globe allow for the lowest possible latency.',
+            description: 'Our twenty-six different data center locations around the globe allow for the lowest possible latency.',
             asset: 'assets/images/ethernet.png',
           ),
 

@@ -9,21 +9,27 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class WebNavigationBar extends StatelessWidget {
   final ItemScrollController controller;
-  const WebNavigationBar({this.controller});
+  final Color color;
+  final bool showItems;
+  const WebNavigationBar({this.controller, this.showItems = true, this.color = Colors.black});
   
   @override
   Widget build(BuildContext context) {
     final ScreenUtil screen = ScreenUtil();
     return LayoutBuilder(
       builder: (var context, var constraints){
-        bool mobile = isMedium(constraints);
+        bool mobile = !showItems || isMedium(constraints);
         return Container(
           width: double.maxFinite,
           height: screen.setHeight(50.0),
-          color: Colors.black,
+          color: color,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: showItems ? MainAxisAlignment.spaceEvenly : MainAxisAlignment.start,
             children: [
+              if(!showItems) SizedBox(
+                width: screen.setWidth(50.0),
+              ),
+
               WebAssetLogo(
                   asset: 'assets/images/logo-full.png'
               ),
@@ -52,9 +58,9 @@ class WebNavigationBar extends StatelessWidget {
                   mobile: mobile
               ),
 
-              FlatButton(
+              if(showItems) FlatButton(
                 color: BLUE,
-                onPressed: () {},
+                onPressed: () => Navigator.of(context).pushNamed('/login'),
                 child:  Text(
                     'GET STARTED',
                     style: GoogleFonts.barlow(
