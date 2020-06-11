@@ -9,9 +9,8 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class WebNavigationBar extends StatelessWidget {
   final ItemScrollController controller;
-  final Color color;
   final bool showItems;
-  const WebNavigationBar({this.controller, this.showItems = true, this.color = Colors.black});
+  const WebNavigationBar({this.controller, this.showItems = true});
   
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class WebNavigationBar extends StatelessWidget {
         return Container(
           width: double.maxFinite,
           height: screen.setHeight(50.0),
-          color: color,
+          color: BLUE_BACKGROUND,
           child: Row(
             mainAxisAlignment: showItems ? MainAxisAlignment.spaceEvenly : MainAxisAlignment.start,
             children: [

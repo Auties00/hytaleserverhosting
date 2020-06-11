@@ -24,7 +24,7 @@ class WebPricingDesktop extends StatelessWidget {
       alignment: Alignment.center,
       width: double.maxFinite,
       height: screen.setHeight(1000.0),
-      color: GREY,
+      color:  BLUE_BACKGROUND,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -106,7 +106,7 @@ class WebPricingMobile extends StatelessWidget {
       alignment: Alignment.center,
       width: double.maxFinite,
       height: screen.setHeight(1500.0),
-      color: GREY,
+      color:  BLUE_BACKGROUND,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -193,7 +193,7 @@ class WebPricingSmall extends StatelessWidget {
       alignment: Alignment.center,
       width: double.maxFinite,
       height: screen.setHeight(2750.0),
-      color: GREY,
+      color:  BLUE_BACKGROUND,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

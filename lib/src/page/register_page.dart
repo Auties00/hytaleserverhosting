@@ -26,12 +26,11 @@ class _RegisterPageState extends State<RegisterPage> {
     var screen = ScreenUtil();
     return Scaffold(
         body: Container(
-            color: BLUE_ACCENT,
+            color: BLUE_BACKGROUND,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 WebNavigationBar(
-                    color: BLUE_ACCENT,
                     showItems: false
                 ),
 

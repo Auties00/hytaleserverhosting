@@ -10,7 +10,7 @@ class WebReviews extends StatelessWidget {
       alignment: Alignment.center,
       width: double.maxFinite,
       height: screen.setHeight(500.0),
-      color: GREY,
+      color:  BLUE_BACKGROUND,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

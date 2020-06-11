@@ -23,7 +23,7 @@ class WebFeaturesDesktop extends StatelessWidget {
       alignment: Alignment.center,
       width: double.maxFinite,
       height: screen.setHeight(500.0),
-      color: GREY,
+      color:  BLUE_BACKGROUND,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -38,7 +38,7 @@ class WebFeaturesDesktop extends StatelessWidget {
 
               WebFeatureItem(
                 name: 'LOW \nLATENCY',
-                description: 'Our twenty-six different data center locations around the globe allow for the lowest possible latency.',
+                description: 'Our different data center locations around the globe allow for the lowest possible latency.',
                 asset: 'assets/images/ethernet.png',
               ),
 
@@ -86,7 +86,7 @@ class WebFeaturesMobile extends StatelessWidget {
       alignment: Alignment.center,
       width: double.maxFinite,
       height: screen.setHeight(800.0),
-      color: GREY,
+      color:  BLUE_BACKGROUND,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -101,7 +101,7 @@ class WebFeaturesMobile extends StatelessWidget {
 
               WebFeatureItem(
                 name: 'LOW \nLATENCY',
-                description: 'Our twenty-six different data center locations around the globe allow for the lowest possible latency.',
+                description: 'Our different data center locations around the globe allow for the lowest possible latency.',
                 asset: 'assets/images/ethernet.png',
               ),
             ],
@@ -154,7 +154,7 @@ class WebFeaturesSmall extends StatelessWidget {
       alignment: Alignment.center,
       width: double.maxFinite,
       height: screen.setHeight(1500.0),
-      color: GREY,
+      color:  BLUE_BACKGROUND,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -166,7 +166,7 @@ class WebFeaturesSmall extends StatelessWidget {
 
           WebFeatureItem(
             name: 'LOW \nLATENCY',
-            description: 'Our twenty-six different data center locations around the globe allow for the lowest possible latency.',
+            description: 'Our different data center locations around the globe allow for the lowest possible latency.',
             asset: 'assets/images/ethernet.png',
           ),
 

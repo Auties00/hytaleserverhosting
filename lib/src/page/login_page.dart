@@ -24,12 +24,11 @@ class _LoginPageState extends State<LoginPage> {
     var screen = ScreenUtil();
     return Scaffold(
         body: Container(
-            color: BLUE_ACCENT,
+            color: BLUE_BACKGROUND,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 WebNavigationBar(
-                    color: BLUE_ACCENT,
                     showItems: false
                 ),
 

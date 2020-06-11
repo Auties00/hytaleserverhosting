@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hosting/src/page/home_page.dart';
 import 'package:hosting/src/page/login_page.dart';
+import 'package:hosting/src/page/purchase_page.dart';
 import 'package:hosting/src/page/register_page.dart';
 
 void main() {
@@ -22,7 +23,8 @@ class HytalesHostingApplication extends StatelessWidget {
       routes: {
         '/' : (_) => HomePage(),
         '/login' : (_) => LoginPage(),
-        '/register' : (_) => RegisterPage()
+        '/register' : (_) => RegisterPage(),
+        '/purchase' : (_) => PurchasePage()
       },
 
       initialRoute: '/',

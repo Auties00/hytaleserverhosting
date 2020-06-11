@@ -24,7 +24,7 @@ class WebIntroductionDesktop extends StatelessWidget {
       alignment: Alignment.center,
       width: double.maxFinite,
       height: screen.setHeight(500.0),
-      color: GREY,
+      color:  BLUE_BACKGROUND,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -34,7 +34,7 @@ class WebIntroductionDesktop extends StatelessWidget {
             children: [
               WebPoint(
                 name: 'CHOOSE A SERVER',
-                description: 'Twenty-six servers over the globe',
+                description: ' Seven servers around the globe',
                 asset:  'assets/images/location.jpg',
                 index: 1,
               ),
@@ -56,7 +56,7 @@ class WebIntroductionDesktop extends StatelessWidget {
           ),
 
           OutlineButton(
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).pushNamed('/purchase'),
             highlightedBorderColor: Colors.transparent,
             highlightElevation: 0.0,
             hoverColor: Colors.yellow[800].withOpacity(0.5),
@@ -87,14 +87,14 @@ class WebIntroductionMobile extends StatelessWidget {
       alignment: Alignment.center,
       width: double.maxFinite,
       height: screen.setHeight(1000.0),
-      color: GREY,
+      color:  BLUE_BACKGROUND,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           WebPoint(
             name: 'CHOOSE A SERVER',
-            description: 'Twenty-six servers over the globe',
+            description: ' Seven servers around the globe',
             asset:  'assets/images/location.jpg',
             index: 1,
           ),
@@ -114,7 +114,7 @@ class WebIntroductionMobile extends StatelessWidget {
           ),
 
           OutlineButton(
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).pushNamed('/purchase'),
             highlightedBorderColor: Colors.transparent,
             highlightElevation: 0.0,
             hoverColor: Colors.yellow[800].withOpacity(0.5),
