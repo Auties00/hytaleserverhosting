@@ -56,7 +56,7 @@ class WebIntroductionDesktop extends StatelessWidget {
           ),
 
           OutlineButton(
-            onPressed: () => Navigator.of(context).pushNamed('/purchase'),
+            onPressed: () => Navigator.of(context).pushNamed('/purchase/location'),
             highlightedBorderColor: Colors.transparent,
             highlightElevation: 0.0,
             hoverColor: Colors.yellow[800].withOpacity(0.5),
@@ -114,7 +114,7 @@ class WebIntroductionMobile extends StatelessWidget {
           ),
 
           OutlineButton(
-            onPressed: () => Navigator.of(context).pushNamed('/purchase'),
+            onPressed: () => Navigator.of(context).pushNamed('/purchase/location'),
             highlightedBorderColor: Colors.transparent,
             highlightElevation: 0.0,
             hoverColor: Colors.yellow[800].withOpacity(0.5),

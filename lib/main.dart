@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hosting/src/page/home_page.dart';
 import 'package:hosting/src/page/login_page.dart';
-import 'package:hosting/src/page/purchase_page.dart';
+import 'package:hosting/src/page/purchase/purchase_pay.dart';
+import 'package:hosting/src/page/purchase/purchase_select_plan.dart';
+import 'package:hosting/src/page/purchase/purchase_select_server.dart';
 import 'package:hosting/src/page/register_page.dart';
 
 void main() {
@@ -24,7 +26,9 @@ class HytalesHostingApplication extends StatelessWidget {
         '/' : (_) => HomePage(),
         '/login' : (_) => LoginPage(),
         '/register' : (_) => RegisterPage(),
-        '/purchase' : (_) => PurchasePage()
+        '/purchase/location' : (_) => PurchaseSelectServerPage(),
+        '/purchase/plan' : (_) => PurchaseSelectPlanPage(),
+        '/purchase/pay' : (_) => PurchasePayPage(),
       },
 
       initialRoute: '/',

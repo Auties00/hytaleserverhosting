@@ -8,18 +8,18 @@ import 'package:hosting/src/widget/web_footer.dart';
 import 'package:hosting/src/widget/web_location_item.dart';
 import 'package:hosting/src/widget/web_navigation_bar.dart';
 
-class PurchasePage extends StatelessWidget {
+class PurchaseSelectServerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
         builder: (var context, var constraints) {
-          return isMedium(constraints) ? PurchasePageMobile() : PurchasePageDesktop();
+          return isMedium(constraints) ? PurchaseSelectServerPageMobile() : PurchaseSelectServerPageDesktop();
         }
     );
   }
 }
 
-class PurchasePageDesktop extends StatelessWidget {
+class PurchaseSelectServerPageDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screen = ScreenUtil();
@@ -71,31 +71,37 @@ class PurchasePageDesktop extends StatelessWidget {
                         WebLocationItem(
                           name: 'North America',
                           orientation: Axis.horizontal,
+                          onTap: () => Navigator.of(context).pushNamed('/purchase/plan'),
                         ),
 
                         WebLocationItem(
                           name: 'Netherlands',
                           orientation: Axis.horizontal,
+                          onTap: () => Navigator.of(context).pushNamed('/purchase/plan'),
                         ),
 
                         WebLocationItem(
                           name: 'Germany',
                           orientation: Axis.horizontal,
+                          onTap: () => Navigator.of(context).pushNamed('/purchase/plan'),
                         ),
 
                         WebLocationItem(
                           name: 'France',
                           orientation: Axis.horizontal,
+                          onTap: () => Navigator.of(context).pushNamed('/purchase/plan'),
                         ),
 
                         WebLocationItem(
                           name: 'United Kindom',
                           orientation: Axis.horizontal,
+                          onTap: () => Navigator.of(context).pushNamed('/purchase/plan'),
                         ),
 
                         WebLocationItem(
                           name: 'Sweden',
                           orientation: Axis.horizontal,
+                          onTap: () => Navigator.of(context).pushNamed('/purchase/plan'),
                         ),
                       ],
                     ),
@@ -110,7 +116,7 @@ class PurchasePageDesktop extends StatelessWidget {
   }
 }
 
-class PurchasePageMobile extends StatelessWidget {
+class PurchaseSelectServerPageMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screen = ScreenUtil();
@@ -160,24 +166,13 @@ class PurchasePageMobile extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         WebLocationItem(
-                            name: 'North America'
+                            name: 'North America',
+                          onTap: () => Navigator.of(context).pushNamed('/purchase/plan'),
                         ),
 
                         WebLocationItem(
-                            name: 'Netherlands'
-                        ),
-                      ],
-                    ),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        WebLocationItem(
-                            name: 'Germany'
-                        ),
-
-                        WebLocationItem(
-                            name: 'France'
+                            name: 'Netherlands',
+                          onTap: () => Navigator.of(context).pushNamed('/purchase/plan'),
                         ),
                       ],
                     ),
@@ -186,11 +181,28 @@ class PurchasePageMobile extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         WebLocationItem(
-                            name: 'United Kindom'
+                            name: 'Germany',
+                          onTap: () => Navigator.of(context).pushNamed('/purchase/plan'),
                         ),
 
                         WebLocationItem(
-                            name: 'Sweden'
+                            name: 'France',
+                          onTap: () => Navigator.of(context).pushNamed('/purchase/plan'),
+                        ),
+                      ],
+                    ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        WebLocationItem(
+                            name: 'United Kindom',
+                          onTap: () => Navigator.of(context).pushNamed('/purchase/plan'),
+                        ),
+
+                        WebLocationItem(
+                            name: 'Sweden',
+                          onTap: () => Navigator.of(context).pushNamed('/purchase/plan'),
                         ),
                       ],
                     )
