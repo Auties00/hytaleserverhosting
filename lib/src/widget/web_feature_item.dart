@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hosting/src/widget/web_image.dart';
 
 class WebFeatureItem extends StatelessWidget {
   final String name;
@@ -19,7 +20,7 @@ class WebFeatureItem extends StatelessWidget {
         children: [
           Row(
             children: [
-              Image.asset(asset, fit: BoxFit.cover),
+              WebImage(asset, fit: BoxFit.cover),
 
               SizedBox(
                 width: 15.0,

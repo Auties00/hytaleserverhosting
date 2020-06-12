@@ -5,20 +5,30 @@ import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/util/screen_util.dart';
 import 'package:hosting/src/widget/web_point.dart';
 
-class WebIntroduction extends StatelessWidget {
+class WebIntroduction extends StatefulWidget {
+  @override
+  _WebIntroductionState createState() => _WebIntroductionState();
+}
+
+class _WebIntroductionState extends State<WebIntroduction> with AutomaticKeepAliveClientMixin{
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return LayoutBuilder(
       builder: (var context, var constraints){
         return isMedium(constraints) ? WebIntroductionMobile() : WebIntroductionDesktop();
       }
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 class WebIntroductionDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print('BODY');
     final ScreenUtil screen = ScreenUtil();
     return Container(
       alignment: Alignment.center,
@@ -35,21 +45,21 @@ class WebIntroductionDesktop extends StatelessWidget {
               WebPoint(
                 name: 'CHOOSE A SERVER',
                 description: ' Seven servers around the globe',
-                asset:  'assets/images/location.jpg',
+                asset:  'location.jpg',
                 index: 1,
               ),
 
               WebPoint(
                 name: 'SELECT A PLAN',
                 description: 'Starting at €7.99 per month',
-                asset: 'assets/images/price.jpg',
+                asset: 'price.jpg',
                 index: 2,
               ),
 
               WebPoint(
                 name: 'START PLAYING',
                 description: 'Your rules, your friends, your game',
-                asset:      'assets/images/play.jpg',
+                asset:      'play.jpg',
                 index: 3,
               ),
             ],
@@ -95,21 +105,21 @@ class WebIntroductionMobile extends StatelessWidget {
           WebPoint(
             name: 'CHOOSE A SERVER',
             description: ' Seven servers around the globe',
-            asset:  'assets/images/location.jpg',
+            asset:  'location.jpg',
             index: 1,
           ),
 
           WebPoint(
             name: 'SELECT A PLAN',
             description: 'Starting at €7.99 per month',
-            asset: 'assets/images/price.jpg',
+            asset: 'price.jpg',
             index: 2,
           ),
 
           WebPoint(
             name: 'START PLAYING',
             description: 'Your rules, your friends, your game',
-            asset:      'assets/images/play.jpg',
+            asset:      'play.jpg',
             index: 3,
           ),
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
+import 'package:hosting/src/widget/web_image.dart';
 
 class WebPricingItem extends StatelessWidget {
   final String title;
@@ -159,7 +160,7 @@ class WebPricingItem extends StatelessWidget {
 
           Align(
               alignment: Alignment.topCenter,
-              child: Image.asset('assets/images/${title.toLowerCase()}.png', fit: BoxFit.cover)
+              child: WebImage('${title.toLowerCase()}.png', fit: BoxFit.cover)
           ),
         ],
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
+import 'package:hosting/src/widget/web_image.dart';
 
 class WebLocationItem extends StatelessWidget {
   final String name;
@@ -16,7 +17,7 @@ class WebLocationItem extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset('assets/images/${name.toLowerCase()}.png'),
+          WebImage('${name.toLowerCase()}.png'),
 
           Text(
               name,
@@ -39,7 +40,7 @@ class WebLocationItem extends StatelessWidget {
           width: screen.setWidth(15.0),
         ),
 
-        Image.asset('assets/images/${name.toLowerCase()}.png'),
+        WebImage('${name.toLowerCase()}.png'),
 
         SizedBox(
           width: screen.setWidth(15.0),

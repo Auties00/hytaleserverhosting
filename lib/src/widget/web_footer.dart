@@ -3,16 +3,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/util/screen_util.dart';
+import 'package:hosting/src/widget/web_image.dart';
 
-class WebFooter extends StatelessWidget {
+class WebFooter extends StatefulWidget {
+  @override
+  _WebFooterState createState() => _WebFooterState();
+}
+
+class _WebFooterState extends State<WebFooter> with AutomaticKeepAliveClientMixin{
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return LayoutBuilder(
       builder: (var context, var constraints){
         return isMedium(constraints) ? WebFooterMobile() : WebFooterDesktop();
       }
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 class WebFooterDesktop extends StatelessWidget {
@@ -38,7 +48,7 @@ class WebFooterDesktop extends StatelessWidget {
           ),
           
           
-          Image.asset('assets/images/cc.png')
+          WebImage('cc.png')
         ],
       ),
     );
@@ -68,7 +78,7 @@ class WebFooterMobile extends StatelessWidget {
           ),
 
 
-          Image.asset('assets/images/cc.png')
+          WebImage('cc.png')
         ],
       ),
     );

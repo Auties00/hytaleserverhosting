@@ -32,47 +32,43 @@ class _HomePageState extends State<HomePage> {
         _videoController.play();
       });
     });
-
-    _itemPositionsListener.itemPositions.addListener(() => _videoController.play());
   }
-
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     ScreenUtil.init(context, width: size.width, height: size.height);
 
+
     return Scaffold(
       body: Container(
         child: NotificationListener<OverscrollIndicatorNotification>(
-          onNotification: (e) {
-            e.disallowGlow();
-            return false;
-          },
-          child: ScrollablePositionedList.builder(
-            itemScrollController: _itemScrollController,
-            itemPositionsListener: _itemPositionsListener,
-            itemBuilder: (var context, var index){
-              switch(index){
-                case 0: return WebNavigationBar(
-                    controller: _itemScrollController
-                );
-                case 1: return WebAnnouncement();
-
-                case 3: return WebVideoPlayer(
-                  controller: _videoController,
-                );
-
-                case 5: return WebIntroduction();
-                case 7: return WebFeatures();
-                case 9: return WebPricing();
-                case 10: return WebFooter();
-              }
-
-              return WebDivider();
+            onNotification: (e) {
+              e.disallowGlow();
+              return false;
             },
-            itemCount: 11,
-          ),
+            child: LayoutBuilder(
+                      builder: (var context, var constraints) => SingleChildScrollView(
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          child: Column(
+                            children: [
+                              WebNavigationBar(
+                                  controller: _itemScrollController
+                              ),
+                              WebAnnouncement(),
+                              WebVideoPlayer(
+                                controller: _videoController,
+                              ),
+                              WebDivider(),
+                              WebIntroduction(),
+                              WebDivider(),
+                              WebFeatures(),
+                              WebDivider(),
+                              WebPricing(),
+                              WebFooter(),
+                            ],
+                          )
+                      )
+                  )
         ),
       ),
     );

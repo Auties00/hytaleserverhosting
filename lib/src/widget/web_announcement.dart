@@ -4,9 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/util/screen_util.dart';
 
-class WebAnnouncement extends StatelessWidget {
+class WebAnnouncement extends StatefulWidget {
+  @override
+  _WebAnnouncementState createState() => _WebAnnouncementState();
+}
+
+class _WebAnnouncementState extends State<WebAnnouncement> with AutomaticKeepAliveClientMixin{
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final ScreenUtil screen = ScreenUtil();
     return LayoutBuilder(
       builder: (var context, var constraints){
@@ -31,4 +37,7 @@ class WebAnnouncement extends StatelessWidget {
       }
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

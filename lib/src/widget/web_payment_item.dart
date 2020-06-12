@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
+import 'package:hosting/src/widget/web_image.dart';
 
 class WebPaymentItem extends StatelessWidget {
   final String name;
@@ -22,7 +23,7 @@ class WebPaymentItem extends StatelessWidget {
           SizedBox(
             height: height,
               width: width,
-              child: Image.asset('assets/images/$asset.png', fit: BoxFit.fill)
+              child: WebImage('$asset.png', fit: BoxFit.fill)
           ),
 
           Text(
@@ -49,7 +50,7 @@ class WebPaymentItem extends StatelessWidget {
         SizedBox(
             height: height,
             width: width,
-            child: Image.asset('assets/images/$asset.png')
+            child: WebImage('$asset.png')
         ),
 
         SizedBox(

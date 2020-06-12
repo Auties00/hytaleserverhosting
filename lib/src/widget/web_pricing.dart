@@ -5,9 +5,17 @@ import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/util/screen_util.dart';
 import 'package:hosting/src/widget/web_pricing_item.dart';
 
-class WebPricing extends StatelessWidget {
+class WebPricing extends StatefulWidget {
+  @override
+  _WebPricingState createState() => _WebPricingState();
+}
+
+class _WebPricingState extends State<WebPricing> with AutomaticKeepAliveClientMixin{
+  get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return LayoutBuilder(
       builder: (var context, var constraints){
         return isMedium(constraints) ? isSmall(constraints) ? WebPricingSmall() : WebPricingMobile() : WebPricingDesktop();
