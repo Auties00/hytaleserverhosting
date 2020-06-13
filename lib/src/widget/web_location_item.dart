@@ -9,25 +9,22 @@ class WebLocationItem extends StatelessWidget {
   final Axis orientation;
   final Function() onTap;
 
-  const WebLocationItem({@required this.name, this.orientation = Axis.vertical, this.onTap});
+  const WebLocationItem(
+      {@required this.name, this.orientation = Axis.vertical, this.onTap});
 
-  Widget _buildBody(var screen){
-    if(orientation == Axis.vertical){
+  Widget _buildBody(var screen) {
+    if (orientation == Axis.vertical) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           WebImage('${name.toLowerCase()}.png'),
-
-          Text(
-              name,
+          Text(name,
               textAlign: TextAlign.center,
               style: GoogleFonts.barlow(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 16.0
-              )
-          ),
+                  fontSize: 16.0)),
         ],
       );
     }
@@ -39,42 +36,39 @@ class WebLocationItem extends StatelessWidget {
         SizedBox(
           width: screen.setWidth(15.0),
         ),
-
         WebImage('${name.toLowerCase()}.png'),
-
         SizedBox(
           width: screen.setWidth(15.0),
         ),
-
-        Text(
-            name,
+        Text(name,
             textAlign: TextAlign.center,
             style: GoogleFonts.barlow(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: 16.0
-            )
-        ),
-
+                fontSize: 16.0)),
         SizedBox(
           width: screen.setWidth(15.0),
         ),
       ],
     );
   }
+
   @override
   Widget build(BuildContext context) {
     final ScreenUtil screen = ScreenUtil();
     return SizedBox(
-      width: orientation == Axis.vertical ? screen.setWidth(200.0) : screen.setWidth(300.0),
-      height: orientation == Axis.vertical ?screen.setHeight(100.0) : screen.setHeight(50.0),
+      width: orientation == Axis.vertical
+          ? screen.setWidth(200.0)
+          : screen.setWidth(300.0),
+      height: orientation == Axis.vertical
+          ? screen.setHeight(100.0)
+          : screen.setHeight(50.0),
       child: InkWell(
         onTap: onTap,
         child: Card(
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          color: BLUE_ACCENT,
-          child: _buildBody(screen)
-        ),
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            color: BLUE_ACCENT,
+            child: _buildBody(screen)),
       ),
     );
   }

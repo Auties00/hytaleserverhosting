@@ -10,15 +10,14 @@ class WebFooter extends StatefulWidget {
   _WebFooterState createState() => _WebFooterState();
 }
 
-class _WebFooterState extends State<WebFooter> with AutomaticKeepAliveClientMixin{
+class _WebFooterState extends State<WebFooter>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return LayoutBuilder(
-      builder: (var context, var constraints){
-        return isMedium(constraints) ? WebFooterMobile() : WebFooterDesktop();
-      }
-    );
+    return LayoutBuilder(builder: (var context, var constraints) {
+      return isMedium(constraints) ? WebFooterMobile() : WebFooterDesktop();
+    });
   }
 
   @override
@@ -44,10 +43,7 @@ class WebFooterDesktop extends StatelessWidget {
               style: GoogleFonts.barlow(
                 color: Colors.white,
                 fontWeight: FontWeight.w400,
-              )
-          ),
-          
-          
+              )),
           WebImage('cc.png')
         ],
       ),
@@ -74,14 +70,10 @@ class WebFooterMobile extends StatelessWidget {
               style: GoogleFonts.barlow(
                 color: Colors.white,
                 fontWeight: FontWeight.w400,
-              )
-          ),
-
-
+              )),
           WebImage('cc.png')
         ],
       ),
     );
   }
 }
-

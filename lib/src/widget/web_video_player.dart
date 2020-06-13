@@ -3,13 +3,15 @@ import 'package:video_player/video_player.dart';
 
 class WebVideoPlayer extends StatefulWidget {
   final VideoPlayerController controller;
+
   const WebVideoPlayer({this.controller});
 
   @override
   _WebVideoPlayerState createState() => _WebVideoPlayerState();
 }
 
-class _WebVideoPlayerState extends State<WebVideoPlayer> with AutomaticKeepAliveClientMixin{
+class _WebVideoPlayerState extends State<WebVideoPlayer>
+    with AutomaticKeepAliveClientMixin {
   get wantKeepAlive => true;
 
   @override
@@ -17,9 +19,6 @@ class _WebVideoPlayerState extends State<WebVideoPlayer> with AutomaticKeepAlive
     super.build(context);
     return SizedBox(
         child: AspectRatio(
-            aspectRatio: 16 / 9,
-            child: VideoPlayer(widget.controller)
-        )
-    );
+            aspectRatio: 16 / 9, child: VideoPlayer(widget.controller)));
   }
 }

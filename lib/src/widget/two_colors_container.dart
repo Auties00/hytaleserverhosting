@@ -15,7 +15,8 @@ class TwoColorsContainer extends StatelessWidget {
       fill,
       fill,
     ];
-    final double fillPercent = 66.66666; // fills 56.23% for container from bottom
+    final double fillPercent =
+        66.66666; // fills 56.23% for container from bottom
     final double fillStop = (100 - fillPercent) / 100;
     final List<double> stops = [0.0, fillStop, fillStop, 1.0];
 

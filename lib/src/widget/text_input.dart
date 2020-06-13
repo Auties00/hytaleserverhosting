@@ -7,7 +7,9 @@ class TextInput extends StatelessWidget {
   final String hint;
   final TextEditingController controller;
   final IconData icon;
-  const TextInput({@required this.hint, @required this.controller, @required this.icon});
+
+  const TextInput(
+      {@required this.hint, @required this.controller, @required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +30,9 @@ class TextInput extends StatelessWidget {
                   borderSide: BorderSide(color: Colors.white),
                 ),
                 enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white)
-                ),
+                    borderSide: BorderSide(color: Colors.white)),
                 hintStyle: GoogleFonts.barlow(
-                    fontWeight: FontWeight.w400,
-                    color: BLUE_ACCENT
-                ),
+                    fontWeight: FontWeight.w400, color: BLUE_ACCENT),
                 focusColor: Colors.white,
                 hoverColor: Colors.white,
                 icon: IconButton(
@@ -42,10 +41,7 @@ class TextInput extends StatelessWidget {
                     color: BLUE_ACCENT,
                     hoverColor: Colors.transparent,
                     onPressed: () {},
-                    icon: Icon(icon)
-                )
-            )
-        ),
+                    icon: Icon(icon)))),
       ),
     );
   }

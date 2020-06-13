@@ -13,7 +13,14 @@ class WebPricingItem extends StatelessWidget {
   final bool big;
   final Function onTap;
 
-  const WebPricingItem({@required this.title, @required this.price, @required this.players, @required this.space, @required this.ram, this.big = false, this.onTap});
+  const WebPricingItem(
+      {@required this.title,
+      @required this.price,
+      @required this.players,
+      @required this.space,
+      @required this.ram,
+      this.big = false,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -40,35 +47,24 @@ class WebPricingItem extends StatelessWidget {
                     SizedBox(
                       height: screen.setHeight(70.0),
                     ),
-
-                    Text(
-                        title,
+                    Text(title,
                         textAlign: TextAlign.center,
                         style: GoogleFonts.barlow(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 28.0
-                        )
-                    ),
-
+                            fontSize: 28.0)),
                     SizedBox(
                       height: screen.setHeight(5.0),
                     ),
-
-                    Text(
-                        '$players Player Slots',
+                    Text('$players Player Slots',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.barlow(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16.0
-                        )
-                    ),
-
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16.0)),
                     SizedBox(
                       height: screen.setHeight(30.0),
                     ),
-
                     RichText(
                       text: TextSpan(
                         text: '',
@@ -78,26 +74,19 @@ class WebPricingItem extends StatelessWidget {
                               style: GoogleFonts.barlow(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 28.0
-                              )
-                          ),
-
+                                  fontSize: 28.0)),
                           TextSpan(
                               text: '/mo',
                               style: GoogleFonts.barlow(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 20.0
-                              )
-                          ),
+                                  fontSize: 20.0)),
                         ],
                       ),
                     ),
-
                     SizedBox(
                       height: screen.setHeight(30.0),
                     ),
-
                     RichText(
                       text: TextSpan(
                         text: '',
@@ -107,27 +96,19 @@ class WebPricingItem extends StatelessWidget {
                               style: GoogleFonts.barlow(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 24.0
-                              )
-                          ),
-
+                                  fontSize: 24.0)),
                           TextSpan(
                               text: ' GB SSD',
                               style: GoogleFonts.barlow(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 24.0
-                              )
-                          ),
+                                  fontSize: 24.0)),
                         ],
                       ),
                     ),
-
-
                     SizedBox(
                       height: screen.setHeight(30.0),
                     ),
-
                     RichText(
                       text: TextSpan(
                         text: '',
@@ -137,18 +118,13 @@ class WebPricingItem extends StatelessWidget {
                               style: GoogleFonts.barlow(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 24.0
-                              )
-                          ),
-
+                                  fontSize: 24.0)),
                           TextSpan(
                               text: ' MB Ram',
                               style: GoogleFonts.barlow(
                                   color: Colors.grey,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 24.0
-                              )
-                          ),
+                                  fontSize: 24.0)),
                         ],
                       ),
                     ),
@@ -157,11 +133,9 @@ class WebPricingItem extends StatelessWidget {
               ),
             ),
           ),
-
           Align(
               alignment: Alignment.topCenter,
-              child: WebImage('${title.toLowerCase()}.png', fit: BoxFit.cover)
-          ),
+              child: WebImage('${title.toLowerCase()}.png', fit: BoxFit.cover)),
         ],
       ),
     );

@@ -13,7 +13,9 @@ class PurchaseSelectPlanPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (var context, var constraints) {
-        return isDesktopHeight(constraints) ? PurchaseSelectPlanPageDesktop() : PurchaseSelectPlanPageMobile();
+        return isDesktopHeight(constraints)
+            ? PurchaseSelectPlanPageDesktop()
+            : PurchaseSelectPlanPageMobile();
       },
     );
   }
@@ -29,40 +31,28 @@ class PurchaseSelectPlanPageDesktop extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                WebNavigationBar(
-                    showItems: false
-                ),
-
+                WebNavigationBar(showItems: false),
                 Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                          'SELECT A PLAN',
+                      Text('SELECT A PLAN',
                           textAlign: TextAlign.start,
                           style: GoogleFonts.barlow(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 32.0
-                          )
-                      ),
-
+                              fontSize: 32.0)),
                       SizedBox(
                         height: screen.setHeight(10.0),
                       ),
-
                       Text(
                           'Remember to select the plan that best fits your needs!',
                           textAlign: TextAlign.start,
                           style: GoogleFonts.barlow(
                               color: Colors.white,
                               fontWeight: FontWeight.w400,
-                              fontSize: 16.0
-                          )
-                      ),
-                    ]
-                ),
-
+                              fontSize: 16.0)),
+                    ]),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -73,9 +63,9 @@ class PurchaseSelectPlanPageDesktop extends StatelessWidget {
                         space: '25',
                         ram: '1024',
                         big: true,
-                        onTap: () => Navigator.of(context).pushNamed('/purchase/pay'),
+                        onTap: () =>
+                            Navigator.of(context).pushNamed('/purchase/pay'),
                       ),
-
                       WebPricingItem(
                         title: 'COAL',
                         price: '€14.99',
@@ -83,9 +73,9 @@ class PurchaseSelectPlanPageDesktop extends StatelessWidget {
                         space: '50GB',
                         ram: '2048',
                         big: true,
-                        onTap: () => Navigator.of(context).pushNamed('/purchase/pay'),
+                        onTap: () =>
+                            Navigator.of(context).pushNamed('/purchase/pay'),
                       ),
-
                       WebPricingItem(
                         title: 'GOLD',
                         price: '€19.99',
@@ -93,11 +83,10 @@ class PurchaseSelectPlanPageDesktop extends StatelessWidget {
                         space: '50GB',
                         ram: '4096',
                         big: true,
-                        onTap: () => Navigator.of(context).pushNamed('/purchase/pay'),
+                        onTap: () =>
+                            Navigator.of(context).pushNamed('/purchase/pay'),
                       ),
-                    ]
-                ),
-
+                    ]),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -108,10 +97,9 @@ class PurchaseSelectPlanPageDesktop extends StatelessWidget {
                         space: '80GB',
                         ram: '6144',
                         big: true,
-                        onTap: () => Navigator.of(context).pushNamed('/purchase/pay'),
+                        onTap: () =>
+                            Navigator.of(context).pushNamed('/purchase/pay'),
                       ),
-
-
                       WebPricingItem(
                         title: 'DIAMOND',
                         price: '€39.99',
@@ -119,9 +107,9 @@ class PurchaseSelectPlanPageDesktop extends StatelessWidget {
                         space: '100GB',
                         ram: '8192',
                         big: true,
-                        onTap: () => Navigator.of(context).pushNamed('/purchase/pay'),
+                        onTap: () =>
+                            Navigator.of(context).pushNamed('/purchase/pay'),
                       ),
-
                       WebPricingItem(
                         title: 'EMERALD',
                         price: '€49.99',
@@ -129,17 +117,13 @@ class PurchaseSelectPlanPageDesktop extends StatelessWidget {
                         space: '150GB',
                         ram: '12288',
                         big: true,
-                        onTap: () => Navigator.of(context).pushNamed('/purchase/pay'),
+                        onTap: () =>
+                            Navigator.of(context).pushNamed('/purchase/pay'),
                       ),
-                    ]
-                ),
-
-
+                    ]),
                 WebFooter()
               ],
-            )
-        )
-    );
+            )));
   }
 }
 
@@ -148,49 +132,35 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     final ScreenUtil screen = ScreenUtil();
     return Scaffold(
-        backgroundColor:  BLUE_BACKGROUND,
+        backgroundColor: BLUE_BACKGROUND,
         body: ListView(
           shrinkWrap: true,
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                WebNavigationBar(
-                    showItems: false
-                ),
-
+                WebNavigationBar(showItems: false),
                 SizedBox(
                   height: screen.setHeight(50.0),
                 ),
-
-                Text(
-                    'SELECT A PLAN',
+                Text('SELECT A PLAN',
                     textAlign: TextAlign.start,
                     style: GoogleFonts.barlow(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 32.0
-                    )
-                ),
-
+                        fontSize: 32.0)),
                 SizedBox(
                   height: screen.setHeight(10.0),
                 ),
-
-                Text(
-                    'Remember to select the plan that best fits your needs!',
+                Text('Remember to select the plan that best fits your needs!',
                     textAlign: TextAlign.start,
                     style: GoogleFonts.barlow(
                         color: Colors.white,
                         fontWeight: FontWeight.w400,
-                        fontSize: 16.0
-                    )
-                ),
-
+                        fontSize: 16.0)),
                 SizedBox(
                   height: screen.setHeight(50.0),
                 ),
-
                 WebPricingItem(
                   title: 'STONE',
                   price: '€7.99',
@@ -200,11 +170,9 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                   big: true,
                   onTap: () => Navigator.of(context).pushNamed('/purchase/pay'),
                 ),
-
                 SizedBox(
                   height: screen.setHeight(25.0),
                 ),
-
                 WebPricingItem(
                   title: 'COAL',
                   price: '€14.99',
@@ -214,11 +182,9 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                   big: true,
                   onTap: () => Navigator.of(context).pushNamed('/purchase/pay'),
                 ),
-
                 SizedBox(
                   height: screen.setHeight(25.0),
                 ),
-
                 WebPricingItem(
                   title: 'GOLD',
                   price: '€19.99',
@@ -228,11 +194,9 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                   big: true,
                   onTap: () => Navigator.of(context).pushNamed('/purchase/pay'),
                 ),
-
                 SizedBox(
                   height: screen.setHeight(25.0),
                 ),
-
                 WebPricingItem(
                   title: 'REDSTONE',
                   price: '€29.99',
@@ -242,11 +206,9 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                   big: true,
                   onTap: () => Navigator.of(context).pushNamed('/purchase/pay'),
                 ),
-
                 SizedBox(
                   height: screen.setHeight(25.0),
                 ),
-
                 WebPricingItem(
                   title: 'DIAMOND',
                   price: '€39.99',
@@ -256,11 +218,9 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                   big: true,
                   onTap: () => Navigator.of(context).pushNamed('/purchase/pay'),
                 ),
-
                 SizedBox(
                   height: screen.setHeight(25.0),
                 ),
-
                 WebPricingItem(
                   title: 'EMERALD',
                   price: '€49.99',
@@ -270,16 +230,13 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                   big: true,
                   onTap: () => Navigator.of(context).pushNamed('/purchase/pay'),
                 ),
-
                 SizedBox(
                   height: screen.setHeight(50.0),
                 ),
-
                 WebFooter()
               ],
             )
           ],
-        )
-    );
+        ));
   }
 }

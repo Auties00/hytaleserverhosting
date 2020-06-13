@@ -9,33 +9,33 @@ class WebAnnouncement extends StatefulWidget {
   _WebAnnouncementState createState() => _WebAnnouncementState();
 }
 
-class _WebAnnouncementState extends State<WebAnnouncement> with AutomaticKeepAliveClientMixin{
+class _WebAnnouncementState extends State<WebAnnouncement>
+    with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
     final ScreenUtil screen = ScreenUtil();
-    return LayoutBuilder(
-      builder: (var context, var constraints){
-        return  Container(
-          alignment: Alignment.center,
-          width: double.maxFinite,
-          height: screen.setHeight(50.0),
-          color: BLUE,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-            child: Text(
-                isSmall(constraints) ? "SIGN UP TO BE NOTIFIED WHEN HYTALES BECOMES AVAILABLE!" : "HYTALE IS GOING TO BE RELEASED SOON, SIGN UP TO BE NOTIFIED WHEN IT'S AVAILABLE!",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.barlow(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16.0,
-                )
-            ),
-          ),
-        );
-      }
-    );
+    return LayoutBuilder(builder: (var context, var constraints) {
+      return Container(
+        alignment: Alignment.center,
+        width: double.maxFinite,
+        height: screen.setHeight(50.0),
+        color: BLUE,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+          child: Text(
+              isSmall(constraints)
+                  ? "SIGN UP TO BE NOTIFIED WHEN HYTALES BECOMES AVAILABLE!"
+                  : "HYTALE IS GOING TO BE RELEASED SOON, SIGN UP TO BE NOTIFIED WHEN IT'S AVAILABLE!",
+              textAlign: TextAlign.center,
+              style: GoogleFonts.barlow(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16.0,
+              )),
+        ),
+      );
+    });
   }
 
   @override

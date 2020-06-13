@@ -16,51 +16,36 @@ class PurchasePayPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                WebNavigationBar(
-                    showItems: false
-                ),
-
+                WebNavigationBar(showItems: false),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(
-                        "SELECT A PAYMENT",
+                    Text("SELECT A PAYMENT",
                         textAlign: TextAlign.start,
                         style: GoogleFonts.barlow(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 32.0
-                        )
-                    ),
-
+                            fontSize: 32.0)),
                     SizedBox(
                       height: screen.setHeight(10.0),
                     ),
-
-                    Text(
-                        'Your server will be created instantly!',
+                    Text('Your server will be created instantly!',
                         textAlign: TextAlign.start,
                         style: GoogleFonts.barlow(
                             color: Colors.white,
                             fontWeight: FontWeight.w400,
-                            fontSize: 16.0
-                        )
-                    ),
-
+                            fontSize: 16.0)),
                     SizedBox(
                       height: screen.setHeight(30.0),
                     ),
-
                   ],
                 ),
-
                 WebPaymentItem(
                   name: 'PayPal',
                   asset: 'pp',
                   onTap: () {},
                 ),
-
                 WebPaymentItem(
                   name: 'Credit Card',
                   asset: 'credit',
@@ -68,11 +53,8 @@ class PurchasePayPage extends StatelessWidget {
                   height: 31.0,
                   onTap: () {},
                 ),
-
                 WebFooter()
               ],
-            )
-        )
-    );
+            )));
   }
 }

@@ -19,23 +19,19 @@ class SocialLogin extends StatelessWidget {
             SizedBox(
               width: screen.setWidth(38.0),
             ),
-
             SizedBox(
                 width: screen.setWidth(50.0),
                 height: screen.setWidth(50.0),
-                child: WebImage('pp.png')
-            ),
-
+                child: WebImage('pp.png')),
             SizedBox(
               width: screen.setWidth(38.0),
             ),
-
-            Text(
-                'Paypal',
+            Text('Paypal',
                 textAlign: TextAlign.center,
-                style: GoogleFonts.barlow(color: Colors.white, fontWeight: FontWeight.w400, fontSize: 16.0)
-            ),
-
+                style: GoogleFonts.barlow(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16.0)),
             SizedBox(
               width: screen.setWidth(38.0),
             ),

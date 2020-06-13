@@ -6,25 +6,20 @@ class WebNavigationItem extends StatelessWidget {
   final Function onClick;
   final bool mobile;
 
-  const WebNavigationItem({@required this.name, @required this.onClick, this.mobile});
+  const WebNavigationItem(
+      {@required this.name, @required this.onClick, this.mobile});
 
   @override
   Widget build(BuildContext context) {
-    if(mobile){
-      return SizedBox(
-
-      );
+    if (mobile) {
+      return SizedBox();
     }
 
     return InkWell(
       onTap: onClick,
-      child: Text(
-          name,
+      child: Text(name,
           style: GoogleFonts.barlow(
-              color: Colors.white,
-              fontWeight: FontWeight.bold
-          )
-      ),
+              color: Colors.white, fontWeight: FontWeight.bold)),
     );
   }
 }

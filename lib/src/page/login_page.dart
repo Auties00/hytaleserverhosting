@@ -28,28 +28,20 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                WebNavigationBar(
-                    showItems: false
-                ),
-
+                WebNavigationBar(showItems: false),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                        'CUSTOMER AREA',
+                    Text('CUSTOMER AREA',
                         textAlign: TextAlign.start,
                         style: GoogleFonts.barlow(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 32.0
-                        )
-                    ),
-
+                            fontSize: 32.0)),
                     SizedBox(
                       height: screen.setHeight(10.0),
                     ),
-
                     RichText(
                       text: TextSpan(
                         text: '',
@@ -59,65 +51,55 @@ class _LoginPageState extends State<LoginPage> {
                               style: GoogleFonts.barlow(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 16.0
-                              )
-                          ),
-
+                                  fontSize: 16.0)),
                           TextSpan(
                               text: 'Register here',
                               style: GoogleFonts.barlow(
                                   color: BLUE,
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 16.0
-                              ),
-                              recognizer: TapGestureRecognizer()..onTap = () => Navigator.of(context).pushNamedAndRemoveUntil('/register', (e) => e.isFirst)
-                          ),
+                                  fontSize: 16.0),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () => Navigator.of(context)
+                                    .pushNamedAndRemoveUntil(
+                                        '/register', (e) => e.isFirst)),
                         ],
                       ),
                     ),
-
                     SizedBox(
                       height: screen.setHeight(30.0),
                     ),
-
                     TextInput(
                       hint: 'Email',
                       icon: Icons.email,
                       controller: _emailController,
                     ),
-
                     SizedBox(
                       height: screen.setHeight(10.0),
                     ),
-
                     TextInput(
                       hint: 'Password',
                       icon: Icons.lock,
                       controller: _passwordController,
                     ),
-
                     SizedBox(
                       height: screen.setHeight(30.0),
                     ),
-
                     SizedBox(
                       width: screen.setWidth(350.0),
                       height: screen.setHeight(50.0),
                       child: FlatButton(
                         color: BLUE,
-                        onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil('/login', (e) => e.isFirst),
-                        child:  Text(
-                            'LOG IN',
+                        onPressed: () => Navigator.of(context)
+                            .pushNamedAndRemoveUntil(
+                                '/login', (e) => e.isFirst),
+                        child: Text('LOG IN',
                             style: GoogleFonts.barlow(
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold
-                            )
-                        ),
+                                fontWeight: FontWeight.bold)),
                       ),
                     )
                   ],
                 ),
-
                 WebFooter()
               ],
             )

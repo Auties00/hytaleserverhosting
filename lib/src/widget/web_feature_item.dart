@@ -8,7 +8,8 @@ class WebFeatureItem extends StatelessWidget {
   final String description;
   final String asset;
 
-  const WebFeatureItem({@required this.name, @required this.description, @required this.asset});
+  const WebFeatureItem(
+      {@required this.name, @required this.description, @required this.asset});
 
   @override
   Widget build(BuildContext context) {
@@ -21,37 +22,27 @@ class WebFeatureItem extends StatelessWidget {
           Row(
             children: [
               WebImage(asset, fit: BoxFit.cover),
-
               SizedBox(
                 width: 15.0,
               ),
-
-              Text(
-                  name,
+              Text(name,
                   textAlign: TextAlign.start,
                   style: GoogleFonts.barlow(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 28.0
-                  )
-              ),
+                      fontSize: 28.0)),
             ],
           ),
-
           SizedBox(
             height: 10.0,
           ),
-
-          Text(
-              description,
+          Text(description,
               maxLines: 3,
               textAlign: TextAlign.start,
               style: GoogleFonts.barlow(
-                color: Colors.grey,
-                fontWeight: FontWeight.w400,
-                fontSize: 16.0
-              )
-          ),
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 16.0)),
         ],
       ),
     );

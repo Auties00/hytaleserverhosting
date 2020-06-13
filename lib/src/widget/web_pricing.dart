@@ -10,15 +10,18 @@ class WebPricing extends StatefulWidget {
   _WebPricingState createState() => _WebPricingState();
 }
 
-class _WebPricingState extends State<WebPricing> with AutomaticKeepAliveClientMixin{
+class _WebPricingState extends State<WebPricing>
+    with AutomaticKeepAliveClientMixin {
   get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return LayoutBuilder(
-      builder: (var context, var constraints){
-        return isMedium(constraints) ? isSmall(constraints) ? WebPricingSmall() : WebPricingMobile() : WebPricingDesktop();
+      builder: (var context, var constraints) {
+        return isMedium(constraints)
+            ? isSmall(constraints) ? WebPricingSmall() : WebPricingMobile()
+            : WebPricingDesktop();
       },
     );
   }
@@ -32,74 +35,56 @@ class WebPricingDesktop extends StatelessWidget {
       alignment: Alignment.center,
       width: double.maxFinite,
       height: screen.setHeight(1000.0),
-      color:  BLUE_BACKGROUND,
+      color: BLUE_BACKGROUND,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                WebPricingItem(
-                    title: 'STONE',
-                    price: '€7.99',
-                    players: '12 Players',
-                    space: '25',
-                    ram: '1024',
-                    big: true
-                ),
-
-                WebPricingItem(
-                    title: 'COAL',
-                    price: '€14.99',
-                    players: '24 Players',
-                    space: '50GB',
-                    ram: '2048',
-                    big: true
-                ),
-
-                WebPricingItem(
-                    title: 'GOLD',
-                    price: '€19.99',
-                    players: '48 Players',
-                    space: '50GB',
-                    ram: '4096',
-                    big: true
-                ),
-              ]
-          ),
-
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                WebPricingItem(
-                    title: 'REDSTONE',
-                    price: '€29.99',
-                    players: '72 Players',
-                    space: '80GB',
-                    ram: '6144',
-                    big: true
-                ),
-
-
-                WebPricingItem(
-                    title: 'DIAMOND',
-                    price: '€39.99',
-                    players: '96 Players',
-                    space: '100GB',
-                    ram: '8192',
-                    big: true
-                ),
-
-                WebPricingItem(
-                    title: 'EMERALD',
-                    price: '€49.99',
-                    players: '144 Players',
-                    space: '150GB',
-                    ram: '12288',
-                    big: true
-                ),
-              ]
-          ),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            WebPricingItem(
+                title: 'STONE',
+                price: '€7.99',
+                players: '12 Players',
+                space: '25',
+                ram: '1024',
+                big: true),
+            WebPricingItem(
+                title: 'COAL',
+                price: '€14.99',
+                players: '24 Players',
+                space: '50GB',
+                ram: '2048',
+                big: true),
+            WebPricingItem(
+                title: 'GOLD',
+                price: '€19.99',
+                players: '48 Players',
+                space: '50GB',
+                ram: '4096',
+                big: true),
+          ]),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            WebPricingItem(
+                title: 'REDSTONE',
+                price: '€29.99',
+                players: '72 Players',
+                space: '80GB',
+                ram: '6144',
+                big: true),
+            WebPricingItem(
+                title: 'DIAMOND',
+                price: '€39.99',
+                players: '96 Players',
+                space: '100GB',
+                ram: '8192',
+                big: true),
+            WebPricingItem(
+                title: 'EMERALD',
+                price: '€49.99',
+                players: '144 Players',
+                space: '150GB',
+                ram: '12288',
+                big: true),
+          ]),
         ],
       ),
     );
@@ -114,33 +99,26 @@ class WebPricingMobile extends StatelessWidget {
       alignment: Alignment.center,
       width: double.maxFinite,
       height: screen.setHeight(1500.0),
-      color:  BLUE_BACKGROUND,
+      color: BLUE_BACKGROUND,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                WebPricingItem(
-                    title: 'STONE',
-                    price: '€7.99',
-                    players: '12 Players',
-                    space: '25',
-                    ram: '1024',
-                    big: true
-                ),
-
-                WebPricingItem(
-                    title: 'COAL',
-                    price: '€14.99',
-                    players: '24 Players',
-                    space: '50GB',
-                    ram: '2048',
-                    big: true
-                ),
-              ]
-          ),
-
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            WebPricingItem(
+                title: 'STONE',
+                price: '€7.99',
+                players: '12 Players',
+                space: '25',
+                ram: '1024',
+                big: true),
+            WebPricingItem(
+                title: 'COAL',
+                price: '€14.99',
+                players: '24 Players',
+                space: '50GB',
+                ram: '2048',
+                big: true),
+          ]),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -150,43 +128,32 @@ class WebPricingMobile extends StatelessWidget {
                   players: '48 Players',
                   space: '50GB',
                   ram: '4096',
-                  big: true
-              ),
-
+                  big: true),
               WebPricingItem(
                   title: 'REDSTONE',
                   price: '€29.99',
                   players: '72 Players',
                   space: '80GB',
                   ram: '6144',
-                  big: true
-              ),
+                  big: true),
             ],
           ),
-
-
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                WebPricingItem(
-                    title: 'DIAMOND',
-                    price: '€39.99',
-                    players: '96 Players',
-                    space: '100GB',
-                    ram: '8192',
-                    big: true
-                ),
-
-                WebPricingItem(
-                    title: 'EMERALD',
-                    price: '€49.99',
-                    players: '144 Players',
-                    space: '150GB',
-                    ram: '12288',
-                    big: true
-                ),
-              ]
-          ),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+            WebPricingItem(
+                title: 'DIAMOND',
+                price: '€39.99',
+                players: '96 Players',
+                space: '100GB',
+                ram: '8192',
+                big: true),
+            WebPricingItem(
+                title: 'EMERALD',
+                price: '€49.99',
+                players: '144 Players',
+                space: '150GB',
+                ram: '12288',
+                big: true),
+          ]),
         ],
       ),
     );
@@ -201,7 +168,7 @@ class WebPricingSmall extends StatelessWidget {
       alignment: Alignment.center,
       width: double.maxFinite,
       height: screen.setHeight(2750.0),
-      color:  BLUE_BACKGROUND,
+      color: BLUE_BACKGROUND,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -211,56 +178,44 @@ class WebPricingSmall extends StatelessWidget {
               players: '12 Players',
               space: '25',
               ram: '1024',
-              big: true
-          ),
-
+              big: true),
           WebPricingItem(
               title: 'COAL',
               price: '€14.99',
               players: '24 Players',
               space: '50GB',
               ram: '2048',
-              big: true
-          ),
-
+              big: true),
           WebPricingItem(
               title: 'GOLD',
               price: '€19.99',
               players: '48 Players',
               space: '50GB',
               ram: '4096',
-              big: true
-          ),
-
+              big: true),
           WebPricingItem(
               title: 'REDSTONE',
               price: '€29.99',
               players: '72 Players',
               space: '80GB',
               ram: '6144',
-              big: true
-          ),
-
+              big: true),
           WebPricingItem(
               title: 'DIAMOND',
               price: '€39.99',
               players: '96 Players',
               space: '100GB',
               ram: '8192',
-              big: true
-          ),
-
+              big: true),
           WebPricingItem(
               title: 'EMERALD',
               price: '€49.99',
               players: '144 Players',
               space: '150GB',
               ram: '12288',
-              big: true
-          ),
+              big: true),
         ],
       ),
     );
   }
 }
-
