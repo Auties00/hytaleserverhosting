@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosting/src/constant/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/util/screen_util.dart';
@@ -29,12 +29,11 @@ class _WebIntroductionState extends State<WebIntroduction>
 class WebIntroductionDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('BODY');
-    final ScreenUtil screen = ScreenUtil();
+
     return Container(
       alignment: Alignment.center,
       width: double.maxFinite,
-      height: screen.setHeight(500.0),
+      height: setHeight(500.0),
       color: BLUE_BACKGROUND,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,8 +63,7 @@ class WebIntroductionDesktop extends StatelessWidget {
             ],
           ),
           OutlineButton(
-            onPressed: () =>
-                Navigator.of(context).pushNamed('/purchase/location'),
+            onPressed: () => Navigator.pushNamed(context, '/purchase/location'),
             highlightedBorderColor: Colors.transparent,
             highlightElevation: 0.0,
             hoverColor: Colors.yellow[800].withOpacity(0.5),
@@ -83,11 +81,11 @@ class WebIntroductionDesktop extends StatelessWidget {
 class WebIntroductionMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ScreenUtil screen = ScreenUtil();
+
     return Container(
       alignment: Alignment.center,
       width: double.maxFinite,
-      height: screen.setHeight(1000.0),
+      height: setHeight(1000.0),
       color: BLUE_BACKGROUND,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -112,8 +110,7 @@ class WebIntroductionMobile extends StatelessWidget {
             index: 3,
           ),
           OutlineButton(
-            onPressed: () =>
-                Navigator.of(context).pushNamed('/purchase/location'),
+            onPressed: () => Navigator.pushNamed(context, '/purchase/location'),
             highlightedBorderColor: Colors.transparent,
             highlightElevation: 0.0,
             hoverColor: Colors.yellow[800].withOpacity(0.5),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosting/src/constant/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/widget/web_image.dart';
 
@@ -13,9 +13,9 @@ class WebFeatureItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ScreenUtil screen = ScreenUtil();
+
     return SizedBox(
-      width: screen.setHeight(300.0),
+      width: setHeight(300.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

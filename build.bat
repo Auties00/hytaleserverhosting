@@ -1,1 +1,1 @@
-flutter build web --release
+flutter run -d web-server --release --web-port 50140 --web-hostname 192.168.1.30

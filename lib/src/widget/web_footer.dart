@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosting/src/constant/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/util/screen_util.dart';
@@ -27,11 +27,11 @@ class _WebFooterState extends State<WebFooter>
 class WebFooterDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ScreenUtil screen = ScreenUtil();
+
     return Container(
       alignment: Alignment.center,
       width: double.maxFinite,
-      height: screen.setHeight(100.0),
+      height: setHeight(100.0),
       color: BLUE_ACCENT,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -54,11 +54,11 @@ class WebFooterDesktop extends StatelessWidget {
 class WebFooterMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ScreenUtil screen = ScreenUtil();
+
     return Container(
       alignment: Alignment.center,
       width: double.maxFinite,
-      height: screen.setHeight(150.0),
+      height: setHeight(150.0),
       color: BLUE_ACCENT,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

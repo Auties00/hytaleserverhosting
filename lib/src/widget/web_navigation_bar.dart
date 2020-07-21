@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosting/src/constant/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/util/screen_util.dart';
@@ -17,66 +17,75 @@ class WebNavigationBar extends StatefulWidget {
   _WebNavigationBarState createState() => _WebNavigationBarState();
 }
 
-class _WebNavigationBarState extends State<WebNavigationBar>
-    with AutomaticKeepAliveClientMixin {
+class _WebNavigationBarState extends State<WebNavigationBar> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    final ScreenUtil screen = ScreenUtil();
+
     return LayoutBuilder(builder: (var context, var constraints) {
       bool mobile = !widget.showItems || isMedium(constraints);
       return Container(
         width: double.maxFinite,
-        height: screen.setHeight(50.0),
+        height: setHeight(50.0),
         color: BLUE_BACKGROUND,
         child: Row(
-          mainAxisAlignment: widget.showItems
-              ? MainAxisAlignment.spaceEvenly
-              : MainAxisAlignment.start,
+          mainAxisAlignment: widget.showItems ? MainAxisAlignment.spaceEvenly : MainAxisAlignment.start,
           children: [
             if (!widget.showItems)
               SizedBox(
-                width: screen.setWidth(50.0),
+                width: setWidth(15.0),
               ),
+
             WebImage(
               'logo-full.png',
               fit: BoxFit.cover,
             ),
+
             WebNavigationItem(
                 name: 'HOME',
                 onClick: () => widget.controller.scrollTo(
                     index: 0,
                     duration: Duration(milliseconds: 500),
-                    curve: Curves.easeIn),
-                mobile: mobile),
+                    curve: Curves.easeIn,
+                ),
+                mobile: mobile
+            ),
             WebNavigationItem(
                 name: 'QUICK START',
                 onClick: () => widget.controller.scrollTo(
                     index: 4,
                     duration: Duration(milliseconds: 500),
-                    curve: Curves.easeIn),
-                mobile: mobile),
+                    curve: Curves.easeIn,
+                ),
+                mobile: mobile
+            ),
             WebNavigationItem(
                 name: 'FEAUTURES',
                 onClick: () => widget.controller.scrollTo(
                     index: 6,
                     duration: Duration(milliseconds: 500),
-                    curve: Curves.easeIn),
-                mobile: mobile),
+                    curve: Curves.easeIn,
+                ),
+                mobile: mobile
+            ),
             WebNavigationItem(
-                name: 'PRICING',
-                onClick: () => widget.controller.scrollTo(
-                    index: 8,
-                    duration: Duration(milliseconds: 500),
-                    curve: Curves.easeIn),
-                mobile: mobile),
+              name: 'PRICING',
+              onClick: () => widget.controller.scrollTo(
+                  index: 8,
+                  duration: Duration(milliseconds: 500),
+                  curve: Curves.easeIn,
+              ),
+                mobile: mobile
+            ),
             if (widget.showItems)
               FlatButton(
                 color: BLUE,
-                onPressed: () => Navigator.of(context).pushNamed('/login'),
+                onPressed: () => Navigator.pushNamed(context, '/login'),
                 child: Text('GET STARTED',
                     style: GoogleFonts.barlow(
-                        color: Colors.white, fontWeight: FontWeight.bold)),
+                        color: Colors.white, fontWeight: FontWeight.bold
+                    )
+                ),
               )
           ],
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosting/src/constant/dimension.dart';
 import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/util/screen_util.dart';
 import 'package:hosting/src/widget/web_feature_item.dart';
@@ -30,11 +30,11 @@ class _WebFeaturesState extends State<WebFeatures>
 class WebFeaturesDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ScreenUtil screen = ScreenUtil();
+
     return Container(
       alignment: Alignment.center,
       width: double.maxFinite,
-      height: screen.setHeight(500.0),
+      height: setHeight(500.0),
       color: BLUE_BACKGROUND,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -94,11 +94,11 @@ class WebFeaturesDesktop extends StatelessWidget {
 class WebFeaturesMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ScreenUtil screen = ScreenUtil();
+
     return Container(
       alignment: Alignment.center,
       width: double.maxFinite,
-      height: screen.setHeight(800.0),
+      height: setHeight(800.0),
       color: BLUE_BACKGROUND,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -163,11 +163,11 @@ class WebFeaturesMobile extends StatelessWidget {
 class WebFeaturesSmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final ScreenUtil screen = ScreenUtil();
+
     return Container(
       alignment: Alignment.center,
       width: double.maxFinite,
-      height: screen.setHeight(1500.0),
+      height: setHeight(1500.0),
       color: BLUE_BACKGROUND,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosting/src/constant/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
 
@@ -13,35 +13,38 @@ class TextInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var screen = ScreenUtil();
-    return SizedBox(
-      width: screen.setWidth(350.0),
-      child: Card(
-        color: Colors.white,
-        margin: EdgeInsets.zero,
-        elevation: 2.0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-        child: TextField(
-            cursorColor: Colors.white,
-            controller: controller,
-            decoration: InputDecoration(
-                hintText: hint,
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                ),
-                enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white)),
-                hintStyle: GoogleFonts.barlow(
-                    fontWeight: FontWeight.w400, color: BLUE_ACCENT),
-                focusColor: Colors.white,
-                hoverColor: Colors.white,
-                icon: IconButton(
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    color: BLUE_ACCENT,
-                    hoverColor: Colors.transparent,
-                    onPressed: () {},
-                    icon: Icon(icon)))),
+
+    return Padding(
+      padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+      child: SizedBox(
+        width: setWidth(350.0),
+        child: Card(
+          color: Colors.white,
+          margin: EdgeInsets.zero,
+          elevation: 2.0,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+          child: TextField(
+              cursorColor: Colors.white,
+              controller: controller,
+              decoration: InputDecoration(
+                  hintText: hint,
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white)),
+                  hintStyle: GoogleFonts.barlow(
+                      fontWeight: FontWeight.w400, color: BLUE_ACCENT),
+                  focusColor: Colors.white,
+                  hoverColor: Colors.white,
+                  icon: IconButton(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      color: BLUE_ACCENT,
+                      hoverColor: Colors.transparent,
+                      onPressed: () {},
+                      icon: Icon(icon)))),
+        ),
       ),
     );
   }

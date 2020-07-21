@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosting/src/constant/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/widget/web_image.dart';
@@ -12,7 +12,7 @@ class WebLocationItem extends StatelessWidget {
   const WebLocationItem(
       {@required this.name, this.orientation = Axis.vertical, this.onTap});
 
-  Widget _buildBody(var screen) {
+  Widget _buildBody() {
     if (orientation == Axis.vertical) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -34,11 +34,11 @@ class WebLocationItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(
-          width: screen.setWidth(15.0),
+          width: setWidth(15.0),
         ),
         WebImage('${name.toLowerCase()}.png'),
         SizedBox(
-          width: screen.setWidth(15.0),
+          width: setWidth(15.0),
         ),
         Text(name,
             textAlign: TextAlign.center,
@@ -47,7 +47,7 @@ class WebLocationItem extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 16.0)),
         SizedBox(
-          width: screen.setWidth(15.0),
+          width: setWidth(15.0),
         ),
       ],
     );
@@ -55,20 +55,17 @@ class WebLocationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ScreenUtil screen = ScreenUtil();
+
     return SizedBox(
-      width: orientation == Axis.vertical
-          ? screen.setWidth(200.0)
-          : screen.setWidth(300.0),
-      height: orientation == Axis.vertical
-          ? screen.setHeight(100.0)
-          : screen.setHeight(50.0),
+      width: orientation == Axis.vertical ? setWidth(150.0) : setWidth(300.0),
+      height: orientation == Axis.vertical ? setHeight(100.0) : setHeight(50.0),
       child: InkWell(
         onTap: onTap,
         child: Card(
-            clipBehavior: Clip.antiAliasWithSaveLayer,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
             color: BLUE_ACCENT,
-            child: _buildBody(screen)),
+            child: _buildBody()
+        ),
       ),
     );
   }

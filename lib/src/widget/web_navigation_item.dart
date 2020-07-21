@@ -19,7 +19,8 @@ class WebNavigationItem extends StatelessWidget {
       onTap: onClick,
       child: Text(name,
           style: GoogleFonts.barlow(
-              color: Colors.white, fontWeight: FontWeight.bold)),
+              color: Colors.white, fontWeight: FontWeight.bold)
+      ),
     );
   }
 }

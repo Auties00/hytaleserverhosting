@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hosting/src/constant/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/widget/web_image.dart';
@@ -20,7 +20,7 @@ class WebPaymentItem extends StatelessWidget {
       this.width = 48.0,
       this.height = 48.0});
 
-  Widget _buildBody(var screen) {
+  Widget _buildBody() {
     if (orientation == Axis.vertical) {
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -45,11 +45,11 @@ class WebPaymentItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(
-          width: screen.setWidth(15.0),
+          width: setWidth(15.0),
         ),
         SizedBox(height: height, width: width, child: WebImage('$asset.png')),
         SizedBox(
-          width: screen.setWidth(15.0),
+          width: setWidth(15.0),
         ),
         Text(name,
             textAlign: TextAlign.center,
@@ -58,7 +58,7 @@ class WebPaymentItem extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontSize: 16.0)),
         SizedBox(
-          width: screen.setWidth(15.0),
+          width: setWidth(15.0),
         ),
       ],
     );
@@ -66,20 +66,19 @@ class WebPaymentItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ScreenUtil screen = ScreenUtil();
     return SizedBox(
       width: orientation == Axis.vertical
-          ? screen.setWidth(200.0)
-          : screen.setWidth(300.0),
+          ? setWidth(200.0)
+          : setWidth(300.0),
       height: orientation == Axis.vertical
-          ? screen.setHeight(100.0)
-          : screen.setHeight(50.0),
+          ? setHeight(100.0)
+          : setHeight(50.0),
       child: InkWell(
         onTap: onTap,
         child: Card(
             clipBehavior: Clip.antiAliasWithSaveLayer,
             color: BLUE_ACCENT,
-            child: _buildBody(screen)),
+            child: _buildBody()),
       ),
     );
   }

@@ -7,29 +7,33 @@ import 'package:hosting/src/page/purchase/purchase_select_plan.dart';
 import 'package:hosting/src/page/purchase/purchase_select_server.dart';
 import 'package:hosting/src/page/register_page.dart';
 
+typedef WidgetBuilder = Widget Function(BuildContext context);
+
 void main() {
   ByteDataAssets.instance.basePath = 'assets/images/';
   runApp(HytalesHostingApplication());
 }
 
 class HytalesHostingApplication extends StatelessWidget {
+  final Map<String, WidgetBuilder> _routes =  {
+    '/':  (_) => HomePage(),
+    '/login': (_) =>LoginPage(),
+    '/register': (_) => RegisterPage(),
+    '/purchase/location': (_) => PurchaseSelectServerPage(),
+    '/purchase/plan': (_) => PurchaseSelectPlanPage(),
+    '/purchase/pay': (_) => PurchasePayPage(),
+  };
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Hytale Hosting',
+      title: 'Hytale Server Hosting',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      routes: {
-        '/': (_) => HomePage(),
-        '/login': (_) => LoginPage(),
-        '/register': (_) => RegisterPage(),
-        '/purchase/location': (_) => PurchaseSelectServerPage(),
-        '/purchase/plan': (_) => PurchaseSelectPlanPage(),
-        '/purchase/pay': (_) => PurchasePayPage(),
-      },
+      routes: _routes,
       initialRoute: '/',
     );
   }
