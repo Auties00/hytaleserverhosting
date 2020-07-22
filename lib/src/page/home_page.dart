@@ -79,27 +79,33 @@ class _HomePageState extends State<HomePage> {
             return WebDivider();
           },
           itemCount: 10,
-        ) :SingleChildScrollView(
-            controller: _mobileScrollController,
-            physics: const AlwaysScrollableScrollPhysics(),
-            child: Column(
-              children: [
-                WebNavigationBar(
-                    controller: _itemScrollController
-                ),
-                WebAnnouncement(),
-                WebPlayer(
-                    link: 'https://i.imgur.com/VPTYKX2.mp4'
-                ),
-                WebDivider(),
-                WebIntroduction(),
-                WebDivider(),
-                WebFeatures(),
-                WebDivider(),
-                WebPricing(),
-                WebFooter(),
-              ],
-            )
+        ) : ListView.builder(
+          controller: _mobileScrollController,
+          physics: const AlwaysScrollableScrollPhysics(),
+          itemBuilder: (var context, var index) {
+            switch (index) {
+              case 0: return WebNavigationBar(
+                  controller: _itemScrollController
+              );
+
+              case 1:return WebAnnouncement();
+
+              case 2: return WebPlayer(
+                  link: 'https://i.imgur.com/VPTYKX2.mp4'
+              );
+
+              case 4: return WebIntroduction();
+
+              case 6: return WebFeatures();
+
+              case 8: return WebPricing();
+
+              case 9: return WebFooter();
+            }
+
+            return WebDivider();
+          },
+          itemCount: 10
         );
       },
     );
@@ -107,11 +113,6 @@ class _HomePageState extends State<HomePage> {
 
   void _initWebListeners(constraints){
     document
-      ..onPause.listen((event) => print("Pause"))
-      ..addEventListener('long-press', (event) {
-        print(event.timeStamp);
-        event.preventDefault();
-      })
       ..onKeyDown.listen((e) {
         int index = _itemPositionsListener.itemPositions.value.isNotEmpty ? _itemPositionsListener.itemPositions.value.first.index : 0;
         void animateTo(int pos) {

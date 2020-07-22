@@ -161,55 +161,63 @@ class WebFeaturesMobile extends StatelessWidget {
 }
 
 class WebFeaturesSmall extends StatelessWidget {
+  final _widgets = [
+    WebFeatureItem(
+      name: 'FREE\nTRIAL',
+      description:
+      'Still not convinced? Try our service for free for eight hours, no credit card required! Not satisfied? Cancel with no charge!',
+      asset: 'ddos.png',
+    ),
+    WebFeatureItem(
+      name: 'LOW \nLATENCY',
+      description:
+      'Our different data center locations around the globe allow for the lowest possible latency.',
+      asset: 'ethernet.png',
+    ),
+    WebFeatureItem(
+      name: '24/7\nSUPPORT',
+      description:
+      'Receive real 24/7 support from our knowledegable team. An answer will be delivered in less than 24 hours!',
+      asset: 'support.png',
+    ),
+    WebFeatureItem(
+      name: 'CUSTOM\nPANEL',
+      description:
+      'Manage your game server easily thanks to our custom game panel built exclusively for Hytale',
+      asset: 'ftp.png',
+    ),
+    WebFeatureItem(
+      name: 'ENTERPRISE\nHARDWARE',
+      description:
+      'We only use enterprise level hardware to ensure maximum performance. Plenty of players? No problem.',
+      asset: 'CPU.png',
+    ),
+    WebFeatureItem(
+      name: 'INSTANT\nDELIVERY',
+      description:
+      'No more waiting for long setups, your sever will be deployed instantly so you can start playing right away',
+      asset: 'unlimited.png',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
-
     return Container(
       alignment: Alignment.center,
       width: double.maxFinite,
-      height: setHeight(1500.0),
+      height: setHeight(1250.0),
       color: BLUE_BACKGROUND,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          WebFeatureItem(
-            name: 'FREE\nTRIAL',
-            description:
-                'Still not convinced? Try our service for free for eight hours, no credit card required! Not satisfied? Cancel with no charge!',
-            asset: 'ddos.png',
-          ),
-          WebFeatureItem(
-            name: 'LOW \nLATENCY',
-            description:
-                'Our different data center locations around the globe allow for the lowest possible latency.',
-            asset: 'ethernet.png',
-          ),
-          WebFeatureItem(
-            name: '24/7\nSUPPORT',
-            description:
-                'Receive real 24/7 support from our knowledegable team. An answer will be delivered in less than 24 hours!',
-            asset: 'support.png',
-          ),
-          WebFeatureItem(
-            name: 'CUSTOM\nPANEL',
-            description:
-                'Manage your game server easily thanks to our custom game panel built exclusively for Hytale',
-            asset: 'ftp.png',
-          ),
-          WebFeatureItem(
-            name: 'ENTERPRISE\nHARDWARE',
-            description:
-                'We only use enterprise level hardware to ensure maximum performance. Plenty of players? No problem.',
-            asset: 'CPU.png',
-          ),
-          WebFeatureItem(
-            name: 'INSTANT\nDELIVERY',
-            description:
-                'No more waiting for long setups, your sever will be deployed instantly so you can start playing right away',
-            asset: 'unlimited.png',
-          ),
-        ],
-      ),
+      child: Padding(
+        padding: EdgeInsets.only(left: 20.0, right: 20.0),
+        child: ListView.separated(
+            physics: const NeverScrollableScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: _widgets.length,
+            separatorBuilder: (context, index) => SizedBox(height: setHeight(70.0)),
+            itemBuilder: (context, index) => _widgets[index]
+        ),
+      )
     );
   }
 }

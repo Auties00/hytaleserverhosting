@@ -16,7 +16,6 @@ class WebPricingItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       width: setWidth(250.0),
       height: setHeight(400.0),
@@ -68,6 +67,7 @@ class WebPricingItem extends StatelessWidget {
         SizedBox(
           height: setHeight(30.0),
         ),
+
         RichText(
           text: TextSpan(
             text: '',
