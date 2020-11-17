@@ -1,4 +1,4 @@
-cd C:\Users\Ale\auties00.github.io
+cd C:\Users\alaut\auties00.github.io
 git commit --allow-empty -m "Trigger rebuild"
 git push
 git add --all
