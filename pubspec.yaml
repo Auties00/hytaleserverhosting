@@ -26,9 +26,8 @@ dependencies:
   flutter_screenutil: 1.1.0
   google_fonts: any
   flutter_web_video_player: 1.0.0+1
-  scrollable_positioned_list: 0.1.6
   asset_cache: 0.2.3
-
+  platform_detect: 1.4.0
 
 dev_dependencies:
   flutter_test:

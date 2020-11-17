@@ -19,7 +19,11 @@ class WebFeatureItem extends StatelessWidget {
         children: [
           Row(
             children: [
-              WebImage(asset, fit: BoxFit.cover),
+              SizedBox(
+                  width: setHeight(75.0),
+                  height: setHeight(75.0),
+                  child: WebImage(asset, fit: BoxFit.cover)
+              ),
               SizedBox(
                 width: 15.0,
               ),
@@ -35,7 +39,7 @@ class WebFeatureItem extends StatelessWidget {
             height: 10.0,
           ),
           Text(description,
-              maxLines: 3,
+              maxLines: 10,
               textAlign: TextAlign.start,
               style: GoogleFonts.barlow(
                   color: Colors.grey,

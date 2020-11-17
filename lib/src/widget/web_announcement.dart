@@ -5,6 +5,8 @@ import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/util/screen_util.dart';
 
 class WebAnnouncement extends StatefulWidget {
+  WebAnnouncement({Key key}) : super(key: key);
+
   @override
   _WebAnnouncementState createState() => _WebAnnouncementState();
 }
@@ -14,7 +16,6 @@ class _WebAnnouncementState extends State<WebAnnouncement>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-
     return LayoutBuilder(builder: (var context, var constraints) {
       return Container(
         alignment: Alignment.center,

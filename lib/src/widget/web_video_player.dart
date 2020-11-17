@@ -4,7 +4,7 @@ import 'package:flutter_web_video_player/flutter_web_video_player.dart';
 class WebPlayer extends StatefulWidget {
   final String link;
 
-  const WebPlayer({@required this.link});
+  const WebPlayer({Key key, @required this.link}) : super(key: key);
 
   @override
   _WebPlayerState createState() => _WebPlayerState();

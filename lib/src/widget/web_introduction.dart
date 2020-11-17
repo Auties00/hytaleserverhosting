@@ -6,12 +6,13 @@ import 'package:hosting/src/util/screen_util.dart';
 import 'package:hosting/src/widget/web_point.dart';
 
 class WebIntroduction extends StatefulWidget {
+  WebIntroduction({Key key}) : super(key: key);
+
   @override
   _WebIntroductionState createState() => _WebIntroductionState();
 }
 
-class _WebIntroductionState extends State<WebIntroduction>
-    with AutomaticKeepAliveClientMixin {
+class _WebIntroductionState extends State<WebIntroduction> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);

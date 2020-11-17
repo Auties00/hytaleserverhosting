@@ -130,7 +130,9 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  WebNavigationBar(showItems: false),
+                  WebNavigationBar(
+                      showItems: false
+                  ),
                   SizedBox(
                     height: setHeight(50.0),
                   ),

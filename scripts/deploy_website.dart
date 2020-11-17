@@ -1,13 +1,14 @@
 import 'dart:io';
 
-const webPath = 'C:\\Users\\Ale\\Desktop\\Coding\\Dart\\1) Flutter\\projects\\hosting\\build\\web';
-const gitPath = 'C:\\Users\\Ale\\auties00.github.io';
+const webPath = 'E:\\hosting\\build\\web';
+const gitPath = 'C:\\Users\\alaut\\auties00.github.io';
 
 void main() {
-  var build = Process.runSync('C:\\Users\\Ale\\Desktop\\Coding\\Dart\\1) Flutter\\projects\\hosting\\build.bat', []);
-  print(build.stdout);
-  print(build.stderr);
+  print("Starting to deploy application...");
+  print("Building web app...");
+  Process.runSync('E:\\hosting\\scripts\\build.bat', []);
 
+  print("Cleaning last build...");
   var git = Directory(gitPath);
   for (var entry in git.listSync()) {
     if (!entry.path.endsWith('.git')) {
@@ -15,6 +16,7 @@ void main() {
     }
   }
 
+  print("Copying new build...");
   var web = Directory(webPath);
   for (var entry in web.listSync(recursive: true)) {
     if (FileSystemEntity.typeSync(entry.path) == FileSystemEntityType.file) {
@@ -24,8 +26,7 @@ void main() {
     }
   }
 
-  var result = Process.runSync('C:\\Users\\Ale\\Desktop\\Coding\\Dart\\1) Flutter\\projects\\hosting\\upgrade_site.bat', []);
-  print(result.stdout);
-  print(result.stderr);
-  print(result.exitCode);
+  print("Applying changes for github pages...");
+  var result = Process.runSync('E:\\hosting\\scripts\\upgrade_site.bat', []);
+  print("Process completed with exit code ${result.exitCode}");
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:hosting/src/constant/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
@@ -7,11 +8,11 @@ import 'package:hosting/src/widget/web_image.dart';
 class SocialLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return SizedBox(
       width: setWidth(350.0),
       height: setHeight(50.0),
       child: FlatButton(
+        mouseCursor: MaterialStateMouseCursor.clickable,
         onPressed: () {},
         color: BLUE_ACCENT,
         child: Row(

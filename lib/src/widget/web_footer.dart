@@ -4,8 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/util/screen_util.dart';
 import 'package:hosting/src/widget/web_image.dart';
+import 'package:platform_detect/platform_detect.dart';
 
 class WebFooter extends StatefulWidget {
+  WebFooter({Key key}) : super(key: key);
+
   @override
   _WebFooterState createState() => _WebFooterState();
 }
@@ -27,7 +30,6 @@ class _WebFooterState extends State<WebFooter>
 class WebFooterDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Container(
       alignment: Alignment.center,
       width: double.maxFinite,
@@ -37,7 +39,7 @@ class WebFooterDesktop extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
-              'Copyright © 2019-2020 Hypixel Server Hosting Ltd. All rights reserved.',
+              'Copyright © 2019-2020 Hypixel Server Hosting Ltd.\n${browser.isChrome ? 'Chrome Browser' : browser.isFirefox ? 'Firefox Browser' : browser.isSafari ? 'Safari Browser' : 'Other browser'} - Desktop View',
               maxLines: 2,
               textAlign: TextAlign.center,
               style: GoogleFonts.barlow(
@@ -54,7 +56,6 @@ class WebFooterDesktop extends StatelessWidget {
 class WebFooterMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return Container(
       alignment: Alignment.center,
       width: double.maxFinite,
@@ -64,7 +65,7 @@ class WebFooterMobile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
-              'Copyright © 2019-2020 Hypixel Server Hosting Ltd.\nAll rights reserved.',
+              'Copyright © 2019-2020 Hypixel Server Hosting Ltd.\n${browser.isChrome ? 'Chrome Browser' : browser.isFirefox ? 'Firefox Browser' : browser.isSafari ? 'Safari Browser' : 'Other browser'} - Mobile View',
               maxLines: 2,
               textAlign: TextAlign.center,
               style: GoogleFonts.barlow(

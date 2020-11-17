@@ -105,6 +105,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       width: setWidth(350.0),
                       height: setHeight(50.0),
                       child: FlatButton(
+                        mouseCursor: MaterialStateMouseCursor.clickable,
                         color: BLUE,
                         onPressed: () => Navigator.pushNamed(context, '/login'),
                         child: Text('REGISTER',

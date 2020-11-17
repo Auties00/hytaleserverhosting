@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hosting/src/constant/color.dart';
 import 'package:hosting/src/constant/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/widget/web_image.dart';
@@ -24,9 +25,16 @@ class WebPoint extends StatelessWidget {
           height: setHeight(175),
           width: setHeight(175),
           clipBehavior: Clip.antiAliasWithSaveLayer,
-          decoration: BoxDecoration(shape: BoxShape.circle),
-          child: WebImage(asset),
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: BLUE_ACCENT
+          ),
+          child: WebImage(
+            asset,
+            animation: false,
+          ),
         ),
+
         SizedBox(
           height: 15.0,
         ),

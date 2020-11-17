@@ -6,12 +6,37 @@ import 'package:hosting/src/page/purchase/purchase_pay.dart';
 import 'package:hosting/src/page/purchase/purchase_select_plan.dart';
 import 'package:hosting/src/page/purchase/purchase_select_server.dart';
 import 'package:hosting/src/page/register_page.dart';
+import 'package:platform_detect/platform_detect.dart';
 
 typedef WidgetBuilder = Widget Function(BuildContext context);
 
-void main() {
+void main() async{
   ByteDataAssets.instance.basePath = 'assets/images/';
+
   runApp(HytalesHostingApplication());
+
+  if(browser.isFirefox) {
+    await ByteDataAssets.instance.load('cc.png');
+    await ByteDataAssets.instance.load('coal.png');
+    await ByteDataAssets.instance.load('CPU.png');
+    await ByteDataAssets.instance.load('credit.png');
+    await ByteDataAssets.instance.load('ddos.png');
+    await ByteDataAssets.instance.load('diamond.png');
+    await ByteDataAssets.instance.load('emerald.png');
+    await ByteDataAssets.instance.load('ethernet.png');
+    await ByteDataAssets.instance.load('gold.png');
+    await ByteDataAssets.instance.load('iron.png');
+    await ByteDataAssets.instance.load('lapis.png');
+    await ByteDataAssets.instance.load('location.jpg');
+    await ByteDataAssets.instance.load('logo-full.png');
+    await ByteDataAssets.instance.load('play.jpg');
+    await ByteDataAssets.instance.load('pp.png');
+    await ByteDataAssets.instance.load('price.jpg');
+    await ByteDataAssets.instance.load('redstone.png');
+    await ByteDataAssets.instance.load('stone.png');
+    await ByteDataAssets.instance.load('support.png');
+    await ByteDataAssets.instance.load('unlimited.png');
+  }
 }
 
 class HytalesHostingApplication extends StatelessWidget {
