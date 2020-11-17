@@ -2,11 +2,14 @@ import 'dart:io';
 
 const webPath = 'E:\\hosting\\build\\web';
 const gitPath = 'C:\\Users\\alaut\\auties00.github.io';
+const buildPath = 'E:\\hosting\\scripts\\build.bat';
+const upgradeSitePath = 'E:\\hosting\\scripts\\upgrade_site.bat';
 
 void main() {
   print("Starting to deploy application...");
   print("Building web app...");
-  Process.runSync('E:\\hosting\\scripts\\build.bat', []);
+  var buildResult = Process.runSync(buildPath, []);
+  print('Build output:${buildResult.stdout}\nBuild errors:${buildResult.stderr}\n');
 
   print("Cleaning last build...");
   var git = Directory(gitPath);
@@ -27,6 +30,7 @@ void main() {
   }
 
   print("Applying changes for github pages...");
-  var result = Process.runSync('E:\\hosting\\scripts\\upgrade_site.bat', []);
+  var result = Process.runSync(upgradeSitePath, []);
+  print('Build output:${result.stdout}\nBuild errors:${result.stderr}');
   print("Process completed with exit code ${result.exitCode}");
 }
