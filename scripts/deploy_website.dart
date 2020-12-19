@@ -1,9 +1,9 @@
 import 'dart:io';
 
-const webPath = 'E:\\hosting\\build\\web';
+const webPath = 'D:\\hosting\\build\\web';
 const gitPath = 'C:\\Users\\alaut\\auties00.github.io';
-const buildPath = 'E:\\hosting\\scripts\\build.bat';
-const upgradeSitePath = 'E:\\hosting\\scripts\\upgrade_site.bat';
+const buildPath = 'D:\\hosting\\scripts\\build.bat';
+const upgradeSitePath = 'D:\\hosting\\scripts\\upgrade_site.bat';
 
 void main() {
   print("Starting to deploy application...");

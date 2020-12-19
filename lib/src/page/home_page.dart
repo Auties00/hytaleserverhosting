@@ -7,7 +7,7 @@ import 'package:hosting/src/constant/dimension.dart';
 import 'package:hosting/src/util/screen_util.dart';
 import 'package:hosting/src/widget/web_announcement.dart';
 import 'package:hosting/src/widget/web_divider.dart';
-import 'package:hosting/src/widget/web_feautures.dart';
+import 'package:hosting/src/widget/web_features.dart';
 import 'package:hosting/src/widget/web_footer.dart';
 import 'package:hosting/src/widget/web_introduction.dart';
 import 'package:hosting/src/widget/web_navigation_bar.dart';
