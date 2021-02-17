@@ -226,13 +226,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  smooth_scroll_web:
-    dependency: "direct main"
-    description:
-      name: smooth_scroll_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.4"
   source_span:
     dependency: transitive
     description:
