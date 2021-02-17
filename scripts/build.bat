@@ -1,1 +1,1 @@
-flutter build web --dart-define=FLUTTER_WEB_CANVASKIT_FORCE_CPU_ONLY=true --release
+flutter build web --release

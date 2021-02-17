@@ -14,6 +14,7 @@ import 'package:hosting/src/widget/web_navigation_bar.dart';
 import 'package:hosting/src/widget/web_pricing.dart';
 import 'package:hosting/src/widget/web_video_player.dart';
 import 'package:platform_detect/platform_detect.dart';
+import 'package:smooth_scroll_web/smooth_scroll_web.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -89,51 +90,54 @@ class _HomePageState extends State<HomePage> {
               )
             ],
           ),
-        ) : ListView(
+        ) : SmoothScrollWeb(
           controller: _controller,
-          physics: const AlwaysScrollableScrollPhysics(),
-          children: [
-            WebNavigationBar(
+          child: ListView(
+            controller: _controller,
+            physics: const NeverScrollableScrollPhysics(),
+            children: [
+              WebNavigationBar(
+                  key: GlobalKey()..addKeyToList(_keys),
+                  keys: _keys
+              ),
+
+              WebAnnouncement(
                 key: GlobalKey()..addKeyToList(_keys),
-                keys: _keys
-            ),
+              ),
 
-            WebAnnouncement(
-              key: GlobalKey()..addKeyToList(_keys),
-            ),
+              WebPlayer(
+                  key: GlobalKey()..addKeyToList(_keys),
+                  link: 'https://i.imgur.com/VPTYKX2.mp4'
+              ),
 
-            WebPlayer(
+              WebDivider(),
+
+              WebIntroduction(
                 key: GlobalKey()..addKeyToList(_keys),
-                link: 'https://i.imgur.com/VPTYKX2.mp4'
-            ),
+              ),
 
-            WebDivider(),
+              WebDivider(),
 
-            WebIntroduction(
-              key: GlobalKey()..addKeyToList(_keys),
-            ),
+              WebFeatures(
+                key: GlobalKey()..addKeyToList(_keys),
+              ),
 
-            WebDivider(),
+              WebDivider(),
 
-            WebFeatures(
-              key: GlobalKey()..addKeyToList(_keys),
-            ),
+              WebPricing(
+                key: GlobalKey()..addKeyToList(_keys),
+              ),
 
-            WebDivider(),
+              WebFooter(
+                key: GlobalKey()..addKeyToList(_keys),
+              )
+            ],
 
-            WebPricing(
-              key: GlobalKey()..addKeyToList(_keys),
-            ),
-
-            WebFooter(
-              key: GlobalKey()..addKeyToList(_keys),
-            )
-          ],
-
-          addAutomaticKeepAlives: true,
-          addRepaintBoundaries: true,
-          addSemanticIndexes: true,
-          cacheExtent: 9999,
+            addAutomaticKeepAlives: true,
+            addRepaintBoundaries: true,
+            addSemanticIndexes: true,
+            cacheExtent: 9999,
+          ),
         );
       },
     );
