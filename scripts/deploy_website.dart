@@ -8,7 +8,8 @@ void main() {
   print("Starting to deploy application...");
   print("Building web app...");
 
-  var buildResult = Process.runSync("flutter build web --release", []);
+  var buildResult = Process.runSync("cmd", ["/c", "flutter", "build", "web", "--release"]);
+
   print('Build output:${buildResult.stdout}\nBuild errors:\n${buildResult.stderr}\n');
 
   print("Cleaning last build...");
@@ -19,7 +20,7 @@ void main() {
   print("Copying new build...");
   Directory(webPath).listSync(recursive: true)
       .where((element) => FileSystemEntity.typeSync(element.path) == FileSystemEntityType.file)
-      .forEach((element) => File(element.path.replaceAll(webPath, gitPath))..createSync(recursive: true));
+      .forEach((element) => File(element.path.replaceAll(webPath, gitPath))..createSync(recursive: true)..writeAsBytesSync(File(element.path).readAsBytesSync()));
 
   print("Applying changes for github pages...");
   var result = Process.runSync(upgradeSitePath, []);
