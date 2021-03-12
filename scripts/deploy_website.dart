@@ -8,26 +8,23 @@ const upgradeSitePath = 'D:\\hosting\\scripts\\upgrade_site.bat';
 void main() {
   print("Starting to deploy application...");
   print("Building web app...");
+
   var buildResult = Process.runSync(buildPath, []);
-  print('Build output:${buildResult.stdout}\nBuild errors:${buildResult.stderr}\n');
+  print('Build output:${buildResult.stdout}\nBuild errors:\n${buildResult.stderr}\n');
 
   print("Cleaning last build...");
   Directory(gitPath).listSync()
       .where((element) => !element.path.endsWith(".git"))
-      .forEach((element) => element.deleteSync(recursive: true))) {
+      .forEach((element) => element.deleteSync(recursive: true));
 
   print("Copying new build...");
-  var web = Directory(webPath);
-  for (var entry in web.listSync(recursive: true)) {
-  if (FileSystemEntity.typeSync(entry.path) == FileSystemEntityType.file) {
-  File(entry.path.replaceAll(webPath, gitPath))
-  ..createSync(recursive: true)
-  ..writeAsBytesSync(File(entry.path).readAsBytesSync());
-  }
-  }
+  Directory(webPath).listSync(recursive: true)
+      .where((element) => FileSystemEntity.typeSync(element.path) == FileSystemEntityType.file)
+      .forEach((element) => File(element.path.replaceAll(webPath, gitPath))..createSync(recursive: true));
 
   print("Applying changes for github pages...");
   var result = Process.runSync(upgradeSitePath, []);
-  print('Build output:${result.stdout}\nBuild errors:${result.stderr}');
+
+  print('Build output:\n${result.stdout}\nBuild errors:\n${result.stderr}');
   print("Process completed with exit code ${result.exitCode}");
-  }
+}
