@@ -2,14 +2,13 @@ import 'dart:io';
 
 const webPath = 'D:\\hosting\\build\\web';
 const gitPath = 'C:\\Users\\alaut\\auties00.github.io';
-const buildPath = 'D:\\hosting\\scripts\\build.bat';
 const upgradeSitePath = 'D:\\hosting\\scripts\\upgrade_site.bat';
 
 void main() {
   print("Starting to deploy application...");
   print("Building web app...");
 
-  var buildResult = Process.runSync(buildPath, []);
+  var buildResult = Process.runSync("flutter build web --release", []);
   print('Build output:${buildResult.stdout}\nBuild errors:\n${buildResult.stderr}\n');
 
   print("Cleaning last build...");
