@@ -1,30 +1,33 @@
 import 'dart:io';
 
-const webPath = 'D:\\hosting\\build\\web';
+const projectDir = 'C:\\Users\\alaut\\Desktop\\hosting';
+const webPath = '$projectDir\\build\\web';
 const gitPath = 'C:\\Users\\alaut\\auties00.github.io';
-const upgradeSitePath = 'D:\\hosting\\scripts\\upgrade_site.bat';
 
 void main() {
   print("Starting to deploy application...");
   print("Building web app...");
-
-  var buildResult = Process.runSync("cmd", ["/c", "flutter", "build", "web", "--release"]);
-
-  print('Build output:${buildResult.stdout}\nBuild errors:\n${buildResult.stderr}\n');
+  Process.runSync('$projectDir\\scripts\\build.bat', []);
 
   print("Cleaning last build...");
-  Directory(gitPath).listSync()
-      .where((element) => !element.path.endsWith(".git"))
-      .forEach((element) => element.deleteSync(recursive: true));
+  var git = Directory(gitPath);
+  for (var entry in git.listSync()) {
+    if (!entry.path.endsWith('.git')) {
+      entry.deleteSync(recursive: true);
+    }
+  }
 
   print("Copying new build...");
-  Directory(webPath).listSync(recursive: true)
-      .where((element) => FileSystemEntity.typeSync(element.path) == FileSystemEntityType.file)
-      .forEach((element) => File(element.path.replaceAll(webPath, gitPath))..createSync(recursive: true)..writeAsBytesSync(File(element.path).readAsBytesSync()));
+  var web = Directory(webPath);
+  for (var entry in web.listSync(recursive: true)) {
+    if (FileSystemEntity.typeSync(entry.path) == FileSystemEntityType.file) {
+      File(entry.path.replaceAll(webPath, gitPath))
+        ..createSync(recursive: true)
+        ..writeAsBytesSync(File(entry.path).readAsBytesSync());
+    }
+  }
 
   print("Applying changes for github pages...");
-  var result = Process.runSync(upgradeSitePath, []);
-
-  print('Build output:\n${result.stdout}\nBuild errors:\n${result.stderr}');
+  var result = Process.runSync('$projectDir\\scripts\\upgrade_site.bat', []);
   print("Process completed with exit code ${result.exitCode}");
 }

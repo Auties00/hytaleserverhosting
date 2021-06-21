@@ -53,7 +53,7 @@ class _WebNavigationBarState extends State<WebNavigationBar> with AutomaticKeepA
                 mobile: mobile
             ),
             WebNavigationItem(
-                name: 'FEATURES',
+                name: 'FEAUTURES',
                 onClick: () => Scrollable.ensureVisible(widget.keys[4].currentContext),
                 mobile: mobile
             ),

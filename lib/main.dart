@@ -1,52 +1,56 @@
-import 'package:asset_cache/asset_cache.dart';
 import 'package:flutter/material.dart';
-import 'package:hosting/src/page/home_page.dart';
-import 'package:hosting/src/page/login_page.dart';
-import 'package:hosting/src/page/purchase/purchase_pay.dart';
-import 'package:hosting/src/page/purchase/purchase_select_plan.dart';
-import 'package:hosting/src/page/purchase/purchase_select_server.dart';
-import 'package:hosting/src/page/register_page.dart';
-import 'package:platform_detect/platform_detect.dart';
+import 'package:hosting/src/page/home_page.dart' deferred as home;
+import 'package:hosting/src/page/login_page.dart' deferred as login;
+import 'package:hosting/src/page/purchase/purchase_pay.dart' deferred as pay;
+import 'package:hosting/src/page/purchase/purchase_select_plan.dart' deferred as selectPlan;
+import 'package:hosting/src/page/purchase/purchase_select_server.dart' deferred as selectServer;
+import 'package:hosting/src/page/register_page.dart' deferred as register;
+
 
 typedef WidgetBuilder = Widget Function(BuildContext context);
 
-void main() async{
-  ByteDataAssets.instance.basePath = 'assets/images/';
-
+void main() {
   runApp(HytalesHostingApplication());
-
-  if(browser.isFirefox) {
-    await ByteDataAssets.instance.load('cc.png');
-    await ByteDataAssets.instance.load('coal.png');
-    await ByteDataAssets.instance.load('CPU.png');
-    await ByteDataAssets.instance.load('credit.png');
-    await ByteDataAssets.instance.load('ddos.png');
-    await ByteDataAssets.instance.load('diamond.png');
-    await ByteDataAssets.instance.load('emerald.png');
-    await ByteDataAssets.instance.load('ethernet.png');
-    await ByteDataAssets.instance.load('gold.png');
-    await ByteDataAssets.instance.load('iron.png');
-    await ByteDataAssets.instance.load('lapis.png');
-    await ByteDataAssets.instance.load('location.jpg');
-    await ByteDataAssets.instance.load('logo-full.png');
-    await ByteDataAssets.instance.load('play.jpg');
-    await ByteDataAssets.instance.load('pp.png');
-    await ByteDataAssets.instance.load('price.jpg');
-    await ByteDataAssets.instance.load('redstone.png');
-    await ByteDataAssets.instance.load('stone.png');
-    await ByteDataAssets.instance.load('support.png');
-    await ByteDataAssets.instance.load('unlimited.png');
-  }
 }
 
 class HytalesHostingApplication extends StatelessWidget {
   final Map<String, WidgetBuilder> _routes =  {
-    '/':  (_) => HomePage(),
-    '/login': (_) =>LoginPage(),
-    '/register': (_) => RegisterPage(),
-    '/purchase/location': (_) => PurchaseSelectServerPage(),
-    '/purchase/plan': (_) => PurchaseSelectPlanPage(),
-    '/purchase/pay': (_) => PurchasePayPage(),
+    '/':  (_) {
+      return FutureBuilder(
+        future: home.loadLibrary(),
+        builder: (context, snapshot) => snapshot.connectionState == ConnectionState.done ? home.HomePage() : SizedBox(),
+      );
+    },
+    '/login':  (_) {
+      return FutureBuilder(
+        future: login.loadLibrary(),
+        builder: (context, snapshot) => snapshot.connectionState == ConnectionState.done ? login.LoginPage() : SizedBox(),
+      );
+    },
+    '/register':  (_) {
+      return FutureBuilder(
+        future: register.loadLibrary(),
+        builder: (context, snapshot) => snapshot.connectionState == ConnectionState.done ? register.RegisterPage() : SizedBox(),
+      );
+    },
+    '/purchase/location':  (_) {
+      return FutureBuilder(
+        future: selectServer.loadLibrary(),
+        builder: (context, snapshot) => snapshot.connectionState == ConnectionState.done ? selectServer.PurchaseSelectServerPage() : SizedBox(),
+      );
+    },
+    '/purchase/plan':  (_) {
+      return FutureBuilder(
+        future: selectPlan.loadLibrary(),
+        builder: (context, snapshot) => snapshot.connectionState == ConnectionState.done ? selectPlan.PurchaseSelectPlanPage() : SizedBox(),
+      );
+    },
+    '/purchase/pay':  (_) {
+      return FutureBuilder(
+        future: pay.loadLibrary(),
+        builder: (context, snapshot) => snapshot.connectionState == ConnectionState.done ? pay.PurchasePayPage() : SizedBox(),
+      );
+    },
   };
 
   @override

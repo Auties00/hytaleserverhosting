@@ -39,7 +39,7 @@ class WebFooterDesktop extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
-              'Copyright © 2019-2021 Hypixel Server Hosting Ltd.\n${browser.isChrome ? 'Chrome Browser' : browser.isFirefox ? 'Firefox Browser' : browser.isSafari ? 'Safari Browser' : 'Other browser'} - Desktop View',
+              'Copyright © 2019-2020 Hypixel Server Hosting Ltd.\n${browser.isChrome ? 'Chrome Browser' : browser.isFirefox ? 'Firefox Browser' : browser.isSafari ? 'Safari Browser' : 'Other browser'} - Desktop View',
               maxLines: 2,
               textAlign: TextAlign.center,
               style: GoogleFonts.barlow(
@@ -65,7 +65,7 @@ class WebFooterMobile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
-              'Copyright © 2019-2021 Hypixel Server Hosting Ltd.\n${browser.isChrome ? 'Chrome Browser' : browser.isFirefox ? 'Firefox Browser' : browser.isSafari ? 'Safari Browser' : 'Other browser'} - Mobile View',
+              'Copyright © 2019-2020 Hypixel Server Hosting Ltd.\n${browser.isChrome ? 'Chrome Browser' : browser.isFirefox ? 'Firefox Browser' : browser.isSafari ? 'Safari Browser' : 'Other browser'} - Mobile View',
               maxLines: 2,
               textAlign: TextAlign.center,
               style: GoogleFonts.barlow(

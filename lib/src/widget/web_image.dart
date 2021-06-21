@@ -1,4 +1,3 @@
-import 'package:asset_cache/asset_cache.dart';
 import 'package:flutter/material.dart';
 
 class WebImage extends StatelessWidget {
@@ -10,22 +9,13 @@ class WebImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: ByteDataAssets.instance.load(asset),
-        builder: (var context, var snapshot) {
-          if(!snapshot.hasData){
-            return SizedBox();
-          }
-
-          return Image.memory(
-              snapshot.data.buffer.asUint8List(),
-              fit: fit,
-              frameBuilder: !animation ? null : (context, child, frame, wasSynchronouslyLoaded) {
-                return wasSynchronouslyLoaded ? child : AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 500),
-                  child: frame != null ? child : SizedBox(),
-                );
-              }
+    return Image.asset(
+        "assets/images/$asset",
+        fit: fit,
+        frameBuilder: !animation ? null : (context, child, frame, wasSynchronouslyLoaded) {
+          return wasSynchronouslyLoaded ? child : AnimatedSwitcher(
+            duration: const Duration(milliseconds: 500),
+            child: frame != null ? child : SizedBox(),
           );
         }
     );
