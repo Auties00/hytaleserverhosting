@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/constant/dimension.dart';
+import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/widget/web_image.dart';
 

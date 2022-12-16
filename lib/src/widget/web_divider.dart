@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/constant/color.dart';
+import 'package:hosting/src/util/color.dart';
 
 class WebDivider extends StatelessWidget {
   @override

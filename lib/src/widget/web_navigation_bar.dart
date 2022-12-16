@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hosting/src/constant/dimension.dart';
-import 'package:hosting/src/constant/color.dart';
-import 'package:hosting/src/util/screen_util.dart';
+import 'package:hosting/src/util/dimension.dart';
+import 'package:hosting/src/util/color.dart';
+import 'package:hosting/src/util/screen.dart';
 import 'package:hosting/src/widget/web_image.dart';
 import 'package:hosting/src/widget/web_navigation_item.dart';
 
@@ -21,10 +21,8 @@ class _WebNavigationBarState extends State<WebNavigationBar> with AutomaticKeepA
   Widget build(BuildContext context) {
     super.build(context);
     return LayoutBuilder(builder: (var context, var constraints) {
-      bool mobile = !widget.showItems || isMedium(constraints);
+      var mobile = !widget.showItems || isMedium(constraints);
       return Container(
-        width: double.maxFinite,
-        height: setHeight(50.0),
         color: BLUE_BACKGROUND,
         child: Row(
           mainAxisAlignment: widget.showItems ? MainAxisAlignment.spaceEvenly : MainAxisAlignment.start,
@@ -36,36 +34,57 @@ class _WebNavigationBarState extends State<WebNavigationBar> with AutomaticKeepA
 
             Padding(
               padding: const EdgeInsets.all(4.0),
-              child: WebImage(
-                'logo-full.png',
-                fit: BoxFit.cover,
+              child: SizedBox(
+                height: setHeight(50.0),
+                child: WebImage(
+                  'logo-full.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
 
             WebNavigationItem(
                 name: 'HOME',
-                onClick: () => Scrollable.ensureVisible(widget.keys[0].currentContext),
+                onClick: () => Scrollable.ensureVisible(
+                    widget.keys[0].currentContext,
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.easeIn
+                ),
                 mobile: mobile
             ),
             WebNavigationItem(
                 name: 'QUICK START',
-                onClick: () => Scrollable.ensureVisible(widget.keys[3].currentContext),
+                onClick: () => Scrollable.ensureVisible(
+                    widget.keys[3].currentContext,
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.easeIn
+                ),
                 mobile: mobile
             ),
             WebNavigationItem(
-                name: 'FEAUTURES',
-                onClick: () => Scrollable.ensureVisible(widget.keys[4].currentContext),
+                name: 'FEATURES',
+                onClick: () => Scrollable.ensureVisible(
+                    widget.keys[4].currentContext,
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.easeIn
+                ),
                 mobile: mobile
             ),
             WebNavigationItem(
               name: 'PRICING',
-                onClick: () => Scrollable.ensureVisible(widget.keys[5].currentContext),
+                onClick: () => Scrollable.ensureVisible(
+                    widget.keys[5].currentContext,
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.easeIn
+                ),
                 mobile: mobile
             ),
             if (widget.showItems)
-              FlatButton(
-                mouseCursor: MaterialStateMouseCursor.clickable,
-                color: BLUE,
+              TextButton(
+                style: ButtonStyle(
+                    mouseCursor: MaterialStateMouseCursor.clickable,
+                    backgroundColor: MaterialStateProperty.all(BLUE)
+                ),
                 onPressed: () => Navigator.pushNamed(context, '/login'),
                 child: Text('GET STARTED',
                     style: GoogleFonts.barlow(

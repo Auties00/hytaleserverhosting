@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:hosting/src/constant/dimension.dart';
+import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hosting/src/constant/color.dart';
+import 'package:hosting/src/util/color.dart';
 import 'package:hosting/src/widget/text_input.dart';
 import 'package:hosting/src/widget/web_footer.dart';
 import 'package:hosting/src/widget/web_navigation_bar.dart';
@@ -22,7 +21,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: Container(
           color: BLUE_BACKGROUND,
           child: Column(
@@ -92,9 +90,11 @@ class _LoginPageState extends State<LoginPage> {
                     child: SizedBox(
                       width: setWidth(350.0),
                       height: setHeight(50.0),
-                      child: FlatButton(
-                        mouseCursor: MaterialStateMouseCursor.clickable,
-                        color: BLUE,
+                      child: TextButton(
+                        style: ButtonStyle(
+                          mouseCursor: MaterialStateMouseCursor.clickable,
+                          backgroundColor: MaterialStateProperty.all(BLUE)
+                        ),
                         onPressed: () => Navigator.pushNamed(context, '/login'),
                         child: Text('LOG IN',
                             style: GoogleFonts.barlow(

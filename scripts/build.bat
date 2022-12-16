@@ -1,1 +1,2 @@
-flutter build web --release --local-engine=host_debug_unopt --local-engine-src-path=C:\Users\alaut\engine\engine\src
+cd "C:\Users\alaut\Desktop\hosting"
+flutter build web --release

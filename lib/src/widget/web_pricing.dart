@@ -1,9 +1,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hosting/src/constant/dimension.dart';
-import 'package:hosting/src/constant/color.dart';
-import 'package:hosting/src/util/screen_util.dart';
+import 'package:hosting/src/util/dimension.dart';
+import 'package:hosting/src/util/color.dart';
+import 'package:hosting/src/util/screen.dart';
 import 'package:hosting/src/widget/web_pricing_item.dart';
 
 class WebPricing extends StatefulWidget {
@@ -14,21 +14,7 @@ class WebPricing extends StatefulWidget {
 }
 
 class _WebPricingState extends State<WebPricing> with AutomaticKeepAliveClientMixin {
-  get wantKeepAlive => true;
-
-  @override
-  Widget build(BuildContext context) {
-    super.build(context);
-    return LayoutBuilder(
-      builder: (var context, var constraints) {
-        return isMedium(constraints) ? isSmall(constraints) ? WebPricingSmall() : WebPricingMobile() : WebPricingDesktop();
-      },
-    );
-  }
-}
-
-class WebPricingDesktop extends StatelessWidget {
-  final _widgets = [
+  final _extendedBody = [
     Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -55,6 +41,11 @@ class WebPricingDesktop extends StatelessWidget {
           ),
         ]
     ),
+
+    SizedBox(
+      height: setHeight(50.0),
+    ),
+
     Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -83,31 +74,7 @@ class WebPricingDesktop extends StatelessWidget {
     )
   ];
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      width: double.maxFinite,
-      height: setHeight(1000.0),
-      color: BLUE_BACKGROUND,
-      child: Wrap(
-        children: [
-          ListView.separated(
-            itemBuilder: (context, index) => _widgets[index],
-            separatorBuilder: (context, index) => SizedBox(height: setHeight(50.0)),
-            itemCount: _widgets.length,
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            physics: const NeverScrollableScrollPhysics(),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class WebPricingMobile extends StatelessWidget {
-  final _widgets = [
+  final _normalBody = [
     Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -127,6 +94,11 @@ class WebPricingMobile extends StatelessWidget {
           ),
         ]
     ),
+
+    SizedBox(
+      height: setHeight(50.0),
+    ),
+
     Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -146,6 +118,11 @@ class WebPricingMobile extends StatelessWidget {
         ),
       ],
     ),
+
+    SizedBox(
+      height: setHeight(50.0),
+    ),
+
     Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -167,31 +144,7 @@ class WebPricingMobile extends StatelessWidget {
     )
   ];
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      width: double.maxFinite,
-      height: setHeight(1500.0),
-      color: BLUE_BACKGROUND,
-      child: Wrap(
-        children: [
-          ListView.separated(
-            itemBuilder: (context, index) => _widgets[index],
-            separatorBuilder: (context, index) => SizedBox(height: setHeight(50.0)),
-            itemCount: _widgets.length,
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            physics: const NeverScrollableScrollPhysics(),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class WebPricingSmall extends StatelessWidget {
-  final _widgets = [
+  final _smallBody = [
     WebPricingItem(
       title: 'STONE',
       price: '€7.99',
@@ -199,6 +152,11 @@ class WebPricingSmall extends StatelessWidget {
       space: '25',
       ram: '1024',
     ),
+
+    SizedBox(
+      height: setHeight(50.0),
+    ),
+
     WebPricingItem(
       title: 'COAL',
       price: '€14.99',
@@ -206,6 +164,11 @@ class WebPricingSmall extends StatelessWidget {
       space: '50',
       ram: '2048',
     ),
+
+    SizedBox(
+      height: setHeight(50.0),
+    ),
+
     WebPricingItem(
       title: 'GOLD',
       price: '€19.99',
@@ -213,6 +176,11 @@ class WebPricingSmall extends StatelessWidget {
       space: '50',
       ram: '4096',
     ),
+
+    SizedBox(
+      height: setHeight(50.0),
+    ),
+
     WebPricingItem(
       title: 'REDSTONE',
       price: '€29.99',
@@ -220,6 +188,11 @@ class WebPricingSmall extends StatelessWidget {
       space: '80',
       ram: '6144',
     ),
+
+    SizedBox(
+      height: setHeight(50.0),
+    ),
+
     WebPricingItem(
       title: 'DIAMOND',
       price: '€39.99',
@@ -227,6 +200,11 @@ class WebPricingSmall extends StatelessWidget {
       space: '100',
       ram: '8192',
     ),
+
+    SizedBox(
+      height: setHeight(50.0),
+    ),
+
     WebPricingItem(
       title: 'EMERALD',
       price: '€49.99',
@@ -238,23 +216,28 @@ class WebPricingSmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      width: double.maxFinite,
-      height: setHeight(2750.0),
-      color: BLUE_BACKGROUND,
-      child: Wrap(
-        children: [
-          ListView.separated(
-            itemBuilder: (context, index) => _widgets[index],
-            separatorBuilder: (context, index) => SizedBox(height: setHeight(50.0)),
-            itemCount: _widgets.length,
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            physics: const NeverScrollableScrollPhysics(),
-          ),
-        ],
-      ),
+    super.build(context);
+    return LayoutBuilder(
+        builder: (var context, var constraints) {
+          var screenType = getScreenType(constraints);
+          return  Container(
+              color: BLUE_BACKGROUND,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  top: setHeight(25.0),
+                  bottom: setHeight(25.0),
+                ),
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: screenType == ScreenType.DESKTOP ? _extendedBody
+                        : screenType == ScreenType.MEDIUM ? _normalBody : _smallBody
+                ),
+              )
+          );
+        }
     );
   }
+
+  get wantKeepAlive => true;
 }

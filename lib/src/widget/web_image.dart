@@ -12,12 +12,16 @@ class WebImage extends StatelessWidget {
     return Image.asset(
         "assets/images/$asset",
         fit: fit,
-        frameBuilder: !animation ? null : (context, child, frame, wasSynchronouslyLoaded) {
-          return wasSynchronouslyLoaded ? child : AnimatedSwitcher(
-            duration: const Duration(milliseconds: 500),
-            child: frame != null ? child : SizedBox(),
-          );
-        }
+        frameBuilder: animation ? _createAnimation() : null
+    );
+  }
+
+  ImageFrameBuilder _createAnimation() {
+    return (context, child, frame, wasSynchronouslyLoaded) => AnimatedOpacity(
+      opacity: frame == null ? 0 : 1,
+      duration: const Duration(seconds: 1),
+      curve: Curves.easeOut,
+      child: child,
     );
   }
 }

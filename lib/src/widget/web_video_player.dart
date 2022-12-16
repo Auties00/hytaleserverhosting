@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web_video_player/flutter_web_video_player.dart';
+import 'package:video_player/video_player.dart';
 
 class WebPlayer extends StatefulWidget {
   final String link;
@@ -11,19 +11,29 @@ class WebPlayer extends StatefulWidget {
 }
 
 class _WebPlayerState extends State<WebPlayer> with AutomaticKeepAliveClientMixin {
+  VideoPlayerController _controller;
+
   get wantKeepAlive => true;
-  
+
+  @override
+  void initState() {
+    _controller = VideoPlayerController.network(widget.link);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return SizedBox(
-        child: AspectRatio(
-            aspectRatio: 16 / 9, 
-            child: WebVideoPlayer(
-              src: widget.link,
-              autoPlay: true,
-              controls: false,
-            )
+        child: FutureBuilder(
+          future: _controller.initialize(),
+          builder: (context, snapshot) {
+            _controller.play();
+            return AspectRatio(
+                aspectRatio: 16 / 9,
+                child: VideoPlayer(_controller)
+            );
+          }
         )
     );
   }

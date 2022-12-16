@@ -1,1 +1,1 @@
-Hytales server hosting built with Flutter Web
+Hytale server hosting built with Flutter Web

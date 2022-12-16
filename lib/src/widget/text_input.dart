@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/constant/dimension.dart';
+import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hosting/src/constant/color.dart';
+import 'package:hosting/src/util/color.dart';
 
 class TextInput extends StatelessWidget {
   final String hint;
@@ -43,7 +43,10 @@ class TextInput extends StatelessWidget {
                       color: BLUE_ACCENT,
                       hoverColor: Colors.transparent,
                       onPressed: () {},
-                      icon: Icon(icon)))),
+                      icon: Icon(icon)
+                  )
+              )
+          ),
         ),
       ),
     );
