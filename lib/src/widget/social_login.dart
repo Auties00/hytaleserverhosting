@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hosting/src/util/color.dart';
 import 'package:hosting/src/widget/web_image.dart';
 
 class SocialLogin extends StatelessWidget {
@@ -13,7 +12,7 @@ class SocialLogin extends StatelessWidget {
       child: TextButton(
         style: ButtonStyle(
             mouseCursor: MaterialStateMouseCursor.clickable,
-            backgroundColor: MaterialStateProperty.all(BLUE)
+            backgroundColor: MaterialStateProperty.all(Theme.of(context).colorScheme.primary)
         ),
         onPressed: () {},
         child: Row(

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hosting/src/util/color.dart';
 import 'package:hosting/src/widget/web_image.dart';
 
 class WebPaymentItem extends StatelessWidget {
@@ -13,12 +12,12 @@ class WebPaymentItem extends StatelessWidget {
   final Function() onTap;
 
   const WebPaymentItem(
-      {@required this.name,
-      @required this.asset,
-      this.orientation = Axis.vertical,
-      this.onTap,
-      this.width = 48.0,
-      this.height = 48.0});
+      {required this.name,
+        required this.asset,
+        required this.onTap,
+        this.orientation = Axis.vertical,
+        this.width = 48.0,
+        this.height = 48.0});
 
   Widget _buildBody() {
     if (orientation == Axis.vertical) {
@@ -77,7 +76,7 @@ class WebPaymentItem extends StatelessWidget {
         onTap: onTap,
         child: Card(
             clipBehavior: Clip.antiAliasWithSaveLayer,
-            color: BLUE_ACCENT,
+            color: Theme.of(context).colorScheme.secondary,
             child: _buildBody()),
       ),
     );

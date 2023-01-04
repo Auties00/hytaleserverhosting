@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hosting/src/widget/native_scroll.dart';
 import 'package:hosting/src/widget/web_announcement.dart';
 import 'package:hosting/src/widget/web_divider.dart';
 import 'package:hosting/src/widget/web_features.dart';
@@ -18,8 +19,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    _keys.clear();
     Scale.setup(context, MediaQuery.of(context).size);
+
+    _keys.clear();
 
     return Scaffold(
       body: NotificationListener<OverscrollIndicatorNotification>(
@@ -28,40 +30,40 @@ class _HomePageState extends State<HomePage> {
             return false;
           },
 
-          child: ListView(
-              primary: true,
-              children: [
-                WebNavigationBar(
+          child: SingleChildHtmlScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  WebNavigationBar(
+                      key: GlobalKey()..addKeyToList(_keys),
+                      keys: _keys
+                  ),
+
+                  WebAnnouncement(
                     key: GlobalKey()..addKeyToList(_keys),
-                    keys: _keys
-                ),
+                  ),
 
-                WebAnnouncement(
-                  key: GlobalKey()..addKeyToList(_keys),
-                ),
+                  WebIntroduction(
+                    key: GlobalKey()..addKeyToList(_keys),
+                  ),
 
-                WebDivider(),
+                  WebDivider(),
 
-                WebIntroduction(
-                  key: GlobalKey()..addKeyToList(_keys),
-                ),
+                  WebFeatures(
+                    key: GlobalKey()..addKeyToList(_keys),
+                  ),
 
-                WebDivider(),
+                  WebDivider(),
 
-                WebFeatures(
-                  key: GlobalKey()..addKeyToList(_keys),
-                ),
+                  WebPricing(
+                    key: GlobalKey()..addKeyToList(_keys),
+                  ),
 
-                WebDivider(),
-
-                WebPricing(
-                  key: GlobalKey()..addKeyToList(_keys),
-                ),
-
-                WebFooter(
-                  key: GlobalKey()..addKeyToList(_keys),
-                )
-              ]
+                  WebFooter(
+                    key: GlobalKey()..addKeyToList(_keys),
+                  )
+                ],
+              )
           )
       ),
     );

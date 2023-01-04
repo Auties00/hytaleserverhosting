@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hosting/src/util/color.dart';
 import 'package:hosting/src/widget/web_image.dart';
 
 class WebLocationItem extends StatelessWidget {
   final String name;
   final Axis orientation;
-  final Function() onTap;
+  final Function()? onTap;
 
   const WebLocationItem(
-      {@required this.name, this.orientation = Axis.vertical, this.onTap});
+      {required this.name, this.orientation = Axis.vertical, this.onTap});
 
   Widget _buildBody() {
     if (orientation == Axis.vertical) {
@@ -63,7 +62,7 @@ class WebLocationItem extends StatelessWidget {
         onTap: onTap,
         child: Card(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-            color: BLUE_ACCENT,
+            color: Theme.of(context).colorScheme.secondary,
             child: _buildBody()
         ),
       ),

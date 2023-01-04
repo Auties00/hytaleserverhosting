@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hosting/src/util/color.dart';
 import 'package:hosting/src/util/screen.dart';
 import 'package:hosting/src/widget/web_image.dart';
 import 'package:platform_detect/platform_detect.dart';
 
 class WebFooter extends StatefulWidget {
-  WebFooter({Key key}) : super(key: key);
+  WebFooter({Key? key}) : super(key: key);
 
   @override
   _WebFooterState createState() => _WebFooterState();
@@ -32,7 +31,7 @@ class WebFooterDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      color: BLUE_ACCENT,
+      color: Theme.of(context).colorScheme.secondary,
       child: Padding(
         padding: EdgeInsets.only(
           top: setHeight(25.0),
@@ -62,7 +61,7 @@ class WebFooterMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      color: BLUE_ACCENT,
+      color: Theme.of(context).colorScheme.secondary,
       child: Padding(
         padding: EdgeInsets.only(
           top: setHeight(25.0),

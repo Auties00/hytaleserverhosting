@@ -8,7 +8,7 @@ class WebFeatureItem extends StatelessWidget {
   final String description;
   final String asset;
 
-  const WebFeatureItem({@required this.name, @required this.description, @required this.asset});
+  const WebFeatureItem({required this.name, required this.description, required this.asset});
 
   @override
   Widget build(BuildContext context) {

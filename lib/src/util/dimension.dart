@@ -1,5 +1,5 @@
 import 'package:scale/scale.dart';
 
-double setHeight(double length) => Scale.scaleVertically(length);
+T setHeight<T extends num>(T length) => Scale.scaleVertically(length) as T;
 
-double setWidth(double length) => Scale.scaleHorizontally(length);
+T setWidth<T extends num>(T length) => Scale.scaleHorizontally(length) as T;

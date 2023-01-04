@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/util/color.dart';
 import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/widget/web_image.dart';
@@ -11,14 +10,13 @@ class WebPoint extends StatelessWidget {
   final int index;
 
   const WebPoint(
-      {@required this.name,
-      @required this.description,
-      @required this.asset,
-      @required this.index});
+      {required this.name,
+      required this.description,
+      required this.asset,
+      required this.index});
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
         Container(
@@ -27,7 +25,7 @@ class WebPoint extends StatelessWidget {
           clipBehavior: Clip.antiAliasWithSaveLayer,
           decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: BLUE_ACCENT
+              color: Theme.of(context).colorScheme.secondary
           ),
           child: WebImage(
             asset,
@@ -36,8 +34,9 @@ class WebPoint extends StatelessWidget {
         ),
 
         SizedBox(
-          height: 15.0,
+          height: setHeight(15.0)
         ),
+
         Text(name,
             textAlign: TextAlign.center,
             style: GoogleFonts.barlow(

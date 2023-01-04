@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/util/color.dart';
 
 class WebDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: BLUE,
+      color: Theme.of(context).colorScheme.primary,
       height: 5.0,
     );
   }

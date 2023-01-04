@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hosting/src/dialog/login_dialog.dart';
+import 'package:hosting/src/dialog/mutable_dialog.dart';
 import 'package:hosting/src/util/dimension.dart';
-import 'package:hosting/src/util/color.dart';
 import 'package:hosting/src/util/screen.dart';
 import 'package:hosting/src/widget/web_image.dart';
 import 'package:hosting/src/widget/web_navigation_item.dart';
 
 class WebNavigationBar extends StatefulWidget {
-  final List<GlobalKey> keys;
+  final List<GlobalKey>? keys;
   final bool showItems;
 
-  const WebNavigationBar({Key key, this.keys, this.showItems = true}) : super(key: key);
+  const WebNavigationBar({Key? key, this.keys, this.showItems = true}) : super(key: key);
 
   @override
   _WebNavigationBarState createState() => _WebNavigationBarState();
@@ -23,7 +24,7 @@ class _WebNavigationBarState extends State<WebNavigationBar> with AutomaticKeepA
     return LayoutBuilder(builder: (var context, var constraints) {
       var mobile = !widget.showItems || isMedium(constraints);
       return Container(
-        color: BLUE_BACKGROUND,
+        color: Theme.of(context).colorScheme.background,
         child: Row(
           mainAxisAlignment: widget.showItems ? MainAxisAlignment.spaceEvenly : MainAxisAlignment.start,
           children: [
@@ -34,58 +35,47 @@ class _WebNavigationBarState extends State<WebNavigationBar> with AutomaticKeepA
 
             Padding(
               padding: const EdgeInsets.all(4.0),
-              child: SizedBox(
-                height: setHeight(50.0),
-                child: WebImage(
-                  'logo-full.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, "/"),
+                    child: SizedBox(
+                      height: setHeight(50.0),
+                      child: WebImage(
+                        'logo-full.png',
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                )
+              )
             ),
 
             WebNavigationItem(
                 name: 'HOME',
-                onClick: () => Scrollable.ensureVisible(
-                    widget.keys[0].currentContext,
-                    duration: Duration(milliseconds: 500),
-                    curve: Curves.easeIn
-                ),
+                onClick: () => _animateTo(0),
                 mobile: mobile
             ),
             WebNavigationItem(
                 name: 'QUICK START',
-                onClick: () => Scrollable.ensureVisible(
-                    widget.keys[3].currentContext,
-                    duration: Duration(milliseconds: 500),
-                    curve: Curves.easeIn
-                ),
+                onClick: () => _animateTo(3),
                 mobile: mobile
             ),
             WebNavigationItem(
                 name: 'FEATURES',
-                onClick: () => Scrollable.ensureVisible(
-                    widget.keys[4].currentContext,
-                    duration: Duration(milliseconds: 500),
-                    curve: Curves.easeIn
-                ),
+                onClick: () => _animateTo(4),
                 mobile: mobile
             ),
             WebNavigationItem(
               name: 'PRICING',
-                onClick: () => Scrollable.ensureVisible(
-                    widget.keys[5].currentContext,
-                    duration: Duration(milliseconds: 500),
-                    curve: Curves.easeIn
-                ),
+                onClick: () => _animateTo(5),
                 mobile: mobile
             ),
             if (widget.showItems)
-              TextButton(
-                style: ButtonStyle(
-                    mouseCursor: MaterialStateMouseCursor.clickable,
-                    backgroundColor: MaterialStateProperty.all(BLUE)
+              ElevatedButton(
+                onPressed: () => showDialog(
+                    context: context,
+                    builder: (context) => MutableDialog(register: false)
                 ),
-                onPressed: () => Navigator.pushNamed(context, '/login'),
                 child: Text('GET STARTED',
                     style: GoogleFonts.barlow(
                         color: Colors.white, fontWeight: FontWeight.bold
@@ -96,6 +86,18 @@ class _WebNavigationBarState extends State<WebNavigationBar> with AutomaticKeepA
         ),
       );
     });
+  }
+
+  Future<void> _animateTo(int index) async {
+    if(widget.keys == null){
+      return;
+    }
+
+    Scrollable.ensureVisible(
+        widget.keys!.elementAt(index).currentContext!,
+        duration: Duration(milliseconds: 500),
+        curve: Curves.easeIn
+    );
   }
 
   @override

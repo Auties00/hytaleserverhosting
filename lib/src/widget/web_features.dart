@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hosting/src/util/dimension.dart';
-import 'package:hosting/src/util/color.dart';
 import 'package:hosting/src/util/screen.dart';
 import 'package:hosting/src/widget/web_feature_item.dart';
 
 class WebFeatures extends StatefulWidget {
-  WebFeatures({Key key}) : super(key: key);
+  WebFeatures({Key? key}) : super(key: key);
 
   @override
   _WebFeaturesState createState() => _WebFeaturesState();
@@ -193,7 +192,7 @@ class _WebFeaturesState extends State<WebFeatures>
         builder: (var context, var constraints) {
           var screenType = getScreenType(constraints);
           return  Container(
-              color: BLUE_BACKGROUND,
+              color: Theme.of(context).colorScheme.background,
               child: Padding(
                 padding: EdgeInsets.only(
                   top: setHeight(25.0),

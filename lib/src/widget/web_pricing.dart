@@ -2,217 +2,144 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hosting/src/util/dimension.dart';
-import 'package:hosting/src/util/color.dart';
 import 'package:hosting/src/util/screen.dart';
 import 'package:hosting/src/widget/web_pricing_item.dart';
 
 class WebPricing extends StatefulWidget {
-  WebPricing({Key key}) : super(key: key);
+  WebPricing({Key? key}) : super(key: key);
 
   @override
   _WebPricingState createState() => _WebPricingState();
 }
 
 class _WebPricingState extends State<WebPricing> with AutomaticKeepAliveClientMixin {
-  final _extendedBody = [
+  static final List<Widget> _extendedBody = [
     Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          WebPricingItem(
-            title: 'STONE',
-            price: '€7.99',
-            players: '12',
-            space: '25',
-            ram: '1024',
-          ),
-          WebPricingItem(
-            title: 'COAL',
-            price: '€14.99',
-            players: '24',
-            space: '50',
-            ram: '2048',
-          ),
-          WebPricingItem(
-            title: 'GOLD',
-            price: '€19.99',
-            players: '48',
-            space: '50',
-            ram: '4096',
-          ),
+          _stonePricing,
+          _coalPricing,
+          _goldPricing,
         ]
     ),
 
-    SizedBox(
-      height: setHeight(50.0),
-    ),
+    _divider,
 
     Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          WebPricingItem(
-            title: 'REDSTONE',
-            price: '€29.99',
-            players: '72',
-            space: '80',
-            ram: '6144',
-          ),
-          WebPricingItem(
-            title: 'DIAMOND',
-            price: '€39.99',
-            players: '96',
-            space: '100',
-            ram: '8192',
-          ),
-          WebPricingItem(
-            title: 'EMERALD',
-            price: '€49.99',
-            players: '144',
-            space: '150',
-            ram: '12288',
-          ),
+          _redStonePricing,
+          _diamondPricing,
+          _emeraldPricing
         ]
     )
   ];
 
-  final _normalBody = [
+  static final List<Widget> _normalBody = [
     Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          WebPricingItem(
-            title: 'STONE',
-            price: '€7.99',
-            players: '12',
-            space: '25',
-            ram: '1024',
-          ),
-          WebPricingItem(
-            title: 'COAL',
-            price: '€14.99',
-            players: '24',
-            space: '50',
-            ram: '2048',
-          ),
+          _stonePricing,
+          _coalPricing,
         ]
     ),
 
-    SizedBox(
-      height: setHeight(50.0),
-    ),
+    _divider,
 
     Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        WebPricingItem(
-          title: 'GOLD',
-          price: '€19.99',
-          players: '48',
-          space: '50',
-          ram: '4096',
-        ),
-        WebPricingItem(
-          title: 'REDSTONE',
-          price: '€29.99',
-          players: '72',
-          space: '80',
-          ram: '6144',
-        ),
+        _goldPricing,
+        _redStonePricing,
       ],
     ),
 
-    SizedBox(
-      height: setHeight(50.0),
-    ),
+    _divider,
 
     Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          WebPricingItem(
-            title: 'DIAMOND',
-            price: '€39.99',
-            players: '96',
-            space: '100',
-            ram: '8192',
-          ),
-          WebPricingItem(
-            title: 'EMERALD',
-            price: '€49.99',
-            players: '144',
-            space: '150',
-            ram: '12288',
-          ),
+          _diamondPricing,
+          _emeraldPricing,
         ]
     )
   ];
 
-  final _smallBody = [
-    WebPricingItem(
-      title: 'STONE',
-      price: '€7.99',
-      players: '12',
-      space: '25',
-      ram: '1024',
-    ),
+  static final List<Widget> _smallBody = [
+    _stonePricing,
 
-    SizedBox(
-      height: setHeight(50.0),
-    ),
+    _divider,
 
-    WebPricingItem(
-      title: 'COAL',
-      price: '€14.99',
-      players: '24',
-      space: '50',
-      ram: '2048',
-    ),
+    _coalPricing,
 
-    SizedBox(
-      height: setHeight(50.0),
-    ),
+    _divider,
 
-    WebPricingItem(
-      title: 'GOLD',
-      price: '€19.99',
-      players: '48',
-      space: '50',
-      ram: '4096',
-    ),
+    _goldPricing,
 
-    SizedBox(
-      height: setHeight(50.0),
-    ),
+    _divider,
 
-    WebPricingItem(
-      title: 'REDSTONE',
-      price: '€29.99',
-      players: '72',
-      space: '80',
-      ram: '6144',
-    ),
+    _redStonePricing,
 
-    SizedBox(
-      height: setHeight(50.0),
-    ),
+    _divider,
 
-    WebPricingItem(
-      title: 'DIAMOND',
-      price: '€39.99',
-      players: '96',
-      space: '100',
-      ram: '8192',
-    ),
+    _diamondPricing,
 
-    SizedBox(
-      height: setHeight(50.0),
-    ),
+    _divider,
 
-    WebPricingItem(
-      title: 'EMERALD',
-      price: '€49.99',
-      players: '144',
-      space: '150',
-      ram: '12288',
-    )
+    _emeraldPricing
   ];
+
+  static WebPricingItem get _stonePricing => WebPricingItem(
+    title: 'STONE',
+    price: '€7.99',
+    players: '12',
+    space: '25',
+    ram: '1024',
+  );
+
+  static WebPricingItem get _coalPricing => WebPricingItem(
+    title: 'COAL',
+    price: '€14.99',
+    players: '24',
+    space: '50',
+    ram: '2048',
+  );
+
+  static WebPricingItem get _goldPricing => WebPricingItem(
+    title: 'GOLD',
+    price: '€19.99',
+    players: '48',
+    space: '50',
+    ram: '4096',
+  );
+
+  static WebPricingItem get _redStonePricing => WebPricingItem(
+    title: 'REDSTONE',
+    price: '€29.99',
+    players: '72',
+    space: '80',
+    ram: '6144',
+  );
+
+  static WebPricingItem get _diamondPricing => WebPricingItem(
+    title: 'DIAMOND',
+    price: '€39.99',
+    players: '96',
+    space: '100',
+    ram: '8192',
+  );
+
+  static SizedBox get _divider => SizedBox(
+    height: setHeight(50.0),
+  );
+
+  static WebPricingItem get _emeraldPricing => WebPricingItem(
+    title: 'EMERALD',
+    price: '€49.99',
+    players: '144',
+    space: '150',
+    ram: '12288',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -221,7 +148,7 @@ class _WebPricingState extends State<WebPricing> with AutomaticKeepAliveClientMi
         builder: (var context, var constraints) {
           var screenType = getScreenType(constraints);
           return  Container(
-              color: BLUE_BACKGROUND,
+              color: Theme.of(context).colorScheme.background,
               child: Padding(
                 padding: EdgeInsets.only(
                   top: setHeight(25.0),

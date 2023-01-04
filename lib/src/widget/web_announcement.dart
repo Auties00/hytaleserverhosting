@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hosting/src/util/color.dart';
 import 'package:hosting/src/util/screen.dart';
 
 class WebAnnouncement extends StatefulWidget {
-  WebAnnouncement({Key key}) : super(key: key);
+  WebAnnouncement({Key? key}) : super(key: key);
 
   @override
   _WebAnnouncementState createState() => _WebAnnouncementState();
@@ -19,7 +18,7 @@ class _WebAnnouncementState extends State<WebAnnouncement>
     return LayoutBuilder(builder: (var context, var constraints) {
       return Container(
         alignment: Alignment.center,
-        color: BLUE,
+        color: Theme.of(context).colorScheme.primary,
         child: Padding(
           padding: EdgeInsets.only(
             top: setHeight(12.5),
