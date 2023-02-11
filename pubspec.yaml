@@ -26,7 +26,6 @@ dependencies:
   google_fonts: any
   video_player: ^2.4.10
   platform_detect: ^2.0.7
-  scale: ^0.0.3
 
 dev_dependencies:
   flutter_test:

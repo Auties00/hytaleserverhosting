@@ -17,10 +17,15 @@ class WebNavigationItem extends StatelessWidget {
 
     return InkWell(
       onTap: onClick,
-      child: Text(name,
-          style: GoogleFonts.barlow(
-              color: Colors.white, fontWeight: FontWeight.bold)
-      ),
+      child: RichText(
+        text: TextSpan(
+            text: name,
+            style: GoogleFonts.barlow(
+                color: Colors.white,
+                fontWeight: FontWeight.bold
+            )
+        ),
+      )
     );
   }
 }

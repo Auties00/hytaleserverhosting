@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hosting/src/dialog/login_dialog.dart';
-import 'package:hosting/src/dialog/mutable_dialog.dart';
-import 'package:hosting/src/util/dimension.dart';
+import 'package:hosting/src/page/login_dialog.dart';
+import 'package:hosting/src/page/mutable_dialog.dart';
 import 'package:hosting/src/util/screen.dart';
 import 'package:hosting/src/widget/web_image.dart';
 import 'package:hosting/src/widget/web_navigation_item.dart';
@@ -30,23 +29,20 @@ class _WebNavigationBarState extends State<WebNavigationBar> with AutomaticKeepA
           children: [
             if (!widget.showItems)
               SizedBox(
-                width: setWidth(15.0),
+                width: 15.0,
               ),
 
             Padding(
               padding: const EdgeInsets.all(4.0),
-              child: MouseRegion(
-                cursor: SystemMouseCursors.click,
-                child: GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, "/"),
-                    child: SizedBox(
-                      height: setHeight(50.0),
-                      child: WebImage(
-                        'logo-full.png',
-                        fit: BoxFit.cover,
-                      ),
-                    )
-                )
+              child: InkWell(
+                  onTap: () => Navigator.pushNamed(context, "/"),
+                  child: SizedBox(
+                    height: 50.0,
+                    child: WebImage(
+                      'logo-full.png',
+                      fit: BoxFit.cover,
+                    ),
+                  )
               )
             ),
 
@@ -76,11 +72,14 @@ class _WebNavigationBarState extends State<WebNavigationBar> with AutomaticKeepA
                     context: context,
                     builder: (context) => MutableDialog(register: false)
                 ),
-                child: Text('GET STARTED',
-                    style: GoogleFonts.barlow(
-                        color: Colors.white, fontWeight: FontWeight.bold
+                child: RichText(
+                    text: TextSpan(
+                        text: 'GET STARTED',
+                        style: GoogleFonts.barlow(
+                            color: Colors.white, fontWeight: FontWeight.bold
+                        )
                     )
-                ),
+                )
               )
           ],
         ),
@@ -89,12 +88,13 @@ class _WebNavigationBarState extends State<WebNavigationBar> with AutomaticKeepA
   }
 
   Future<void> _animateTo(int index) async {
-    if(widget.keys == null){
+    var keys = widget.keys;
+    if(keys == null){
       return;
     }
 
     Scrollable.ensureVisible(
-        widget.keys!.elementAt(index).currentContext!,
+        keys.elementAt(index).currentContext!,
         duration: Duration(milliseconds: 500),
         curve: Curves.easeIn
     );

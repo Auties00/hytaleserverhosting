@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:hosting/src/widget/native_scroll.dart';
 import 'package:hosting/src/widget/web_announcement.dart';
@@ -7,7 +9,7 @@ import 'package:hosting/src/widget/web_footer.dart';
 import 'package:hosting/src/widget/web_introduction.dart';
 import 'package:hosting/src/widget/web_navigation_bar.dart';
 import 'package:hosting/src/widget/web_pricing.dart';
-import 'package:scale/scale.dart';
+import 'package:collection/collection.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,60 +20,60 @@ class _HomePageState extends State<HomePage> {
   final List<GlobalKey> _keys = [];
 
   @override
+  void initState() {
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => document.getElementsByClassName("center").firstOrNull?.remove());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    Scale.setup(context, MediaQuery.of(context).size);
-
     _keys.clear();
-
     return Scaffold(
-      body: NotificationListener<OverscrollIndicatorNotification>(
-          onNotification: (e) {
-            e.disallowIndicator();
-            return false;
-          },
+      body: SelectionArea(
+        child: HtmlScrollView(
+            children: [
+              WebNavigationBar(
+                  key: _createRegisteredKey(),
+                  keys: _keys
+              ),
 
-          child: SingleChildHtmlScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  WebNavigationBar(
-                      key: GlobalKey()..addKeyToList(_keys),
-                      keys: _keys
-                  ),
+              WebAnnouncement(
+                key: _createRegisteredKey(),
+              ),
 
-                  WebAnnouncement(
-                    key: GlobalKey()..addKeyToList(_keys),
-                  ),
+              WebIntroduction(
+                key: _createRegisteredKey(),
+              ),
 
-                  WebIntroduction(
-                    key: GlobalKey()..addKeyToList(_keys),
-                  ),
+              WebDivider(
+                key: GlobalKey()
+              ),
 
-                  WebDivider(),
+              WebFeatures(
+                key: _createRegisteredKey(),
+              ),
 
-                  WebFeatures(
-                    key: GlobalKey()..addKeyToList(_keys),
-                  ),
+              WebDivider(
+                  key: GlobalKey()
+              ),
 
-                  WebDivider(),
+              WebPricing(
+                key: _createRegisteredKey(),
+              ),
 
-                  WebPricing(
-                    key: GlobalKey()..addKeyToList(_keys),
-                  ),
-
-                  WebFooter(
-                    key: GlobalKey()..addKeyToList(_keys),
-                  )
-                ],
+              WebFooter(
+                key: _createRegisteredKey(),
               )
-          )
+            ]
+        ),
       ),
     );
   }
-}
 
-extension _GlobalKeyExtension on GlobalKey {
-  void addKeyToList(List<GlobalKey> keys){
-    keys.add(this);
+  GlobalKey _createRegisteredKey(){
+    var key = GlobalKey();
+    _keys.add(key);
+    return key;
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/widget/web_image.dart';
 
@@ -22,8 +21,8 @@ class WebPricingItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: setWidth(250.0),
-      height: setHeight(400.0),
+      width: 250.0,
+      height: 400.0,
       child: Stack(
         children: [
           Align(
@@ -39,8 +38,8 @@ class WebPricingItem extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) => Container(
-        width: setWidth(250.0),
-        height: setHeight(350.0),
+        width: 250.0,
+        height: 350.0,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.secondary,
         ),
@@ -49,7 +48,7 @@ class WebPricingItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: setHeight(70.0),
+              height: 70.0,
             ),
             Text(title,
                 textAlign: TextAlign.center,
@@ -58,7 +57,7 @@ class WebPricingItem extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 28.0)),
             SizedBox(
-              height: setHeight(5.0),
+              height: 5.0,
             ),
             Text('$players Player Slots',
                 textAlign: TextAlign.center,
@@ -67,11 +66,10 @@ class WebPricingItem extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     fontSize: 16.0)),
             SizedBox(
-              height: setHeight(30.0),
+              height: 30.0,
             ),
-            RichText(
-              text: TextSpan(
-                text: '',
+            Text.rich(
+              TextSpan(
                 children: <TextSpan>[
                   TextSpan(
                       text: price,
@@ -89,11 +87,10 @@ class WebPricingItem extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: setHeight(30.0),
+              height: 30.0,
             ),
-            RichText(
-              text: TextSpan(
-                text: '',
+            Text.rich(
+              TextSpan(
                 children: <TextSpan>[
                   TextSpan(
                       text: space,
@@ -111,11 +108,10 @@ class WebPricingItem extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: setHeight(30.0),
+              height: 30.0,
             ),
-            RichText(
-              text: TextSpan(
-                text: '',
+            Text.rich(
+              TextSpan(
                 children: <TextSpan>[
                   TextSpan(
                       text: ram,

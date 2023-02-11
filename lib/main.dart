@@ -1,13 +1,10 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:hosting/src/page/home_page.dart';
-import 'package:hosting/src/dialog/login_dialog.dart';
-import 'package:hosting/src/page/purchase_pay.dart';
-import 'package:hosting/src/page/purchase_select_plan.dart';
-import 'package:hosting/src/page/purchase_select_server.dart';
-import 'package:hosting/src/dialog/register_dialog.dart';
 
 import 'package:flutter_web_plugins/url_strategy.dart';
-
+import 'package:collection/collection.dart';
 
 typedef WidgetBuilder = Widget Function(BuildContext context);
 
@@ -19,9 +16,6 @@ void main() {
 class HytalesHostingApplication extends StatelessWidget {
   final Map<String, WidgetBuilder> _routes =  {
     '/':  (_) => HomePage(),
-    '/purchase/location':  (_) => PurchaseSelectServerPage(),
-    '/purchase/plan':  (_) => PurchaseSelectPlanPage(),
-    '/purchase/pay':  (_) => PurchasePayPage()
   };
 
   @override
@@ -38,7 +32,7 @@ class HytalesHostingApplication extends StatelessWidget {
         )
       ),
       routes: _routes,
-      initialRoute: '/',
+      initialRoute: '/'
     );
   }
 }

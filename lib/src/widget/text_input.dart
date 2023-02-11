@@ -1,7 +1,6 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextInput extends StatefulWidget {
@@ -30,7 +29,7 @@ class _TextInputState extends State<TextInput> {
     return Padding(
       padding: const EdgeInsets.only(left: 15.0, right: 15.0),
       child: SizedBox(
-        width: setWidth(350.0),
+        width: 350.0,
         child: TextField(
           focusNode: widget.focusNode,
             cursorColor: Colors.white,

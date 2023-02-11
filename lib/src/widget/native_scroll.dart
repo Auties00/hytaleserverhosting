@@ -1,3 +1,6 @@
+import 'dart:collection';
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:html';
@@ -5,46 +8,37 @@ import 'dart:ui' as ui;
 
 typedef void OnWidgetSizeChange(Size size);
 
-class SingleChildHtmlScrollView extends StatefulWidget {
-  final Widget child;
+class HtmlScrollView extends StatefulWidget {
+  final List<Widget> children;
 
-  const SingleChildHtmlScrollView({
+  HtmlScrollView({
     Key? key,
-    required this.child,
+    required this.children,
   }) : super(key: key);
 
   @override
-  _SingleChildHtmlScrollViewState createState() =>
-      _SingleChildHtmlScrollViewState();
+  _HtmlScrollViewState createState() =>
+      _HtmlScrollViewState();
 }
 
-class _SingleChildHtmlScrollViewState extends State<SingleChildHtmlScrollView> {
+class _HtmlScrollViewState extends State<HtmlScrollView> {
   static int _index = 0;
+
+  late final List<Widget> _children;
 
   final String _viewId = 'native-scroll-view-${_index++}';
   final ScrollController _scrollController = ScrollController();
   final DivElement _heightDiv = DivElement();
 
+  final HashMap<int, double> _sizes = HashMap();
+
   @override
   void initState() {
+    _children = widget.children
+        .map((child) => child.key == null ? Container(key: GlobalKey(), child: child) : child)
+        .toList();
+    _setupHtml();
     super.initState();
-
-    // ignore: undefined_prefixed_name
-    ui.platformViewRegistry.registerViewFactory(
-        _viewId,
-        (_) => DivElement()
-          ..id = _viewId
-          ..style.overflowX = "hidden"
-          ..style.overflowY = 'auto'
-          ..style.width = '100%'
-          ..style.height = '100%'
-          ..onWheel.listen((event) => event.stopPropagation())
-          ..onMouseWheel.listen((event) => event.stopPropagation())
-          ..onScroll.listen((event) => _scrollController.jumpTo((event.target as DivElement).scrollTop.toDouble()))
-          ..append(_heightDiv)
-    );
-
-    _scrollController.addListener(() => _heightDiv.scrollTop = _scrollController.position.pixels.toInt());
   }
 
   @override
@@ -55,24 +49,87 @@ class _SingleChildHtmlScrollViewState extends State<SingleChildHtmlScrollView> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        ScrollConfiguration(
-          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-          child: SingleChildScrollView(
-              controller: _scrollController,
-              child: _MeasureSize(
-                  onChange: (size) => _heightDiv.style.height = '${size.height.toInt()}px',
-                  child: widget.child
-              )
-          ),
-        ),
+    return LayoutBuilder(
+        builder: (context, constraints) {
+          return Stack(
+            children: [
+              ScrollConfiguration(
+                behavior: ScrollConfiguration.of(context).copyWith(
+                    scrollbars: false
+                ),
+                child: NotificationListener<OverscrollIndicatorNotification>(
+                  onNotification: (e) {
+                    e.disallowIndicator();
+                    return false;
+                  },
+                  child: ListView(
+                      controller: _scrollController,
+                      cacheExtent: double.maxFinite,
+                      dragStartBehavior: DragStartBehavior.down,
+                      children: _measurableChildren
+                  ),
+                ),
+              ),
 
-        IgnorePointer(
-          child: HtmlElementView(viewType: _viewId)
-        )
-      ],
+              IgnorePointer(
+                  ignoringSemantics: true,
+                  child: HtmlElementView(
+                      viewType: _viewId,
+                  )
+              )
+            ],
+          );
+        }
     );
+  }
+
+  List<Widget> get _measurableChildren {
+    var result = <Widget>[];
+    for(var index = 0; index < _children.length; index++){
+      result.add(_MeasureSize(
+          onChange: (size) {
+            _sizes[index] = size.height;
+            _setHtmlHeight();
+          },
+          child: _children[index]
+      ));
+    }
+
+    return result;
+}
+
+  void _setupHtml() {
+    var wrapper = DivElement()
+      ..id = _viewId
+      ..style.overflowX = "hidden"
+      ..style.overflowY = 'auto'
+      ..style.width = '100%'
+      ..style.height = '100%'
+      ..scrollTop = 0
+      ..onWheel.listen((event) => event.stopPropagation())
+      ..onMouseWheel.listen((event) => event.stopPropagation())
+      ..onSelect.listen(_syncFlutterScrollable)
+      ..onScroll.listen(_syncFlutterScrollable)
+      ..append(_heightDiv);
+
+    // ignore: undefined_prefixed_name
+    ui.platformViewRegistry.registerViewFactory(
+        _viewId,
+            (_) => wrapper
+    );
+
+    _scrollController.addListener(() => wrapper.scrollTop = _scrollController.position.pixels.toInt());
+  }
+
+  void _syncFlutterScrollable(Event event) {
+    var element = event.target as DivElement;
+    _scrollController.jumpTo(element.scrollTop.toDouble());
+  }
+
+  void _setHtmlHeight() async{
+    await Future.delayed(Duration.zero);
+    var height = _sizes.values.fold(0.0, (double a, double b) => a + b);
+    _heightDiv.style.height = '${height}px';
   }
 }
 

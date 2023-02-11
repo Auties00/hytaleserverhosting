@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/util/screen.dart';
 import 'package:hosting/src/widget/web_point.dart';
@@ -16,7 +15,7 @@ class _WebIntroductionState extends State<WebIntroduction> with AutomaticKeepAli
   Widget build(BuildContext context) {
     super.build(context);
     return LayoutBuilder(builder: (var context, var constraints) {
-      return isMedium(constraints)
+      return isSmall(constraints)
           ? WebIntroductionMobile()
           : WebIntroductionDesktop();
     });
@@ -32,8 +31,8 @@ class WebIntroductionDesktop extends StatelessWidget {
     return Container(
       color: Theme.of(context).colorScheme.background,
       padding: EdgeInsets.only(
-        top: setHeight(25.0),
-        bottom: setHeight(25.0),
+        top: 25.0,
+        bottom: 25.0,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -74,8 +73,8 @@ class WebIntroductionMobile extends StatelessWidget {
     return Container(
         color: Theme.of(context).colorScheme.background,
         padding: EdgeInsets.only(
-          top: setHeight(25.0),
-          bottom: setHeight(25.0),
+          top: 25.0,
+          bottom: 25.0,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -89,7 +88,7 @@ class WebIntroductionMobile extends StatelessWidget {
             ),
 
             SizedBox(
-              height: setHeight(50.0),
+              height: 25.0,
             ),
 
             WebPoint(
@@ -100,7 +99,7 @@ class WebIntroductionMobile extends StatelessWidget {
             ),
 
             SizedBox(
-              height: setHeight(50.0),
+              height: 25.0,
             ),
 
             WebPoint(

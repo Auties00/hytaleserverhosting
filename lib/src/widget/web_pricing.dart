@@ -1,7 +1,6 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hosting/src/util/dimension.dart';
 import 'package:hosting/src/util/screen.dart';
 import 'package:hosting/src/widget/web_pricing_item.dart';
 
@@ -130,7 +129,7 @@ class _WebPricingState extends State<WebPricing> with AutomaticKeepAliveClientMi
   );
 
   static SizedBox get _divider => SizedBox(
-    height: setHeight(50.0),
+    height: 25.0,
   );
 
   static WebPricingItem get _emeraldPricing => WebPricingItem(
@@ -149,17 +148,15 @@ class _WebPricingState extends State<WebPricing> with AutomaticKeepAliveClientMi
           var screenType = getScreenType(constraints);
           return  Container(
               color: Theme.of(context).colorScheme.background,
-              child: Padding(
-                padding: EdgeInsets.only(
-                  top: setHeight(25.0),
-                  bottom: setHeight(25.0),
-                ),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: screenType == ScreenType.DESKTOP ? _extendedBody
-                        : screenType == ScreenType.MEDIUM ? _normalBody : _smallBody
-                ),
+              padding: EdgeInsets.only(
+                top: 25.0,
+                bottom: 25.0,
+              ),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: screenType == ScreenType.DESKTOP ? _extendedBody
+                      : screenType == ScreenType.MEDIUM ? _normalBody : _smallBody
               )
           );
         }

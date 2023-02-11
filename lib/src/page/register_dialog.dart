@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:hosting/src/dialog/login_dialog.dart';
-import 'package:hosting/src/util/dimension.dart';
+import 'package:hosting/src/page/login_dialog.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/widget/text_input.dart';
 
@@ -30,20 +29,20 @@ class RegisterDialog extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                    'CREATE AN ACCOUNT',
+                    'Sign Up',
                     textAlign: TextAlign.start,
                     style: GoogleFonts.barlow(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 32.0
-                    )
+                    ),
+                    maxLines: 1
                 ),
                 SizedBox(
-                  height: setHeight(10.0),
+                  height: 10.0,
                 ),
-                RichText(
-                  text: TextSpan(
-                    text: '',
+                Text.rich(
+                  TextSpan(
                     children: <TextSpan>[
                       TextSpan(
                           text: "Do you have an account? ",
@@ -61,9 +60,10 @@ class RegisterDialog extends StatelessWidget {
                       ),
                     ],
                   ),
+                  maxLines: 1
                 ),
                 SizedBox(
-                  height: setHeight(30.0),
+                  height: 30.0,
                 ),
                 TextInput(
                   hint: 'Name',
@@ -71,7 +71,7 @@ class RegisterDialog extends StatelessWidget {
                   controller: _nameController,
                 ),
                 SizedBox(
-                  height: setHeight(10.0),
+                  height: 10.0,
                 ),
                 TextInput(
                   hint: 'Email',
@@ -79,7 +79,7 @@ class RegisterDialog extends StatelessWidget {
                   controller: _emailController,
                 ),
                 SizedBox(
-                  height: setHeight(10.0),
+                  height: 10.0,
                 ),
                 TextInput(
                   hint: 'Password',
@@ -87,7 +87,7 @@ class RegisterDialog extends StatelessWidget {
                   controller: _passwordController,
                 ),
                 SizedBox(
-                  height: setHeight(10.0),
+                  height: 10.0,
                 ),
                 TextInput(
                   hint: 'Confirm password',
@@ -95,18 +95,22 @@ class RegisterDialog extends StatelessWidget {
                   controller: _confirmPasswordController,
                 ),
                 SizedBox(
-                  height: setHeight(30.0),
+                  height: 30.0,
                 ),
                 SizedBox(
-                  width: setWidth(350.0),
-                  height: setHeight(50.0),
-                  child: ElevatedButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    child: Text('REGISTER',
-                        style: GoogleFonts.barlow(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold)),
-                  ),
+                  width: 350.0,
+                  height: 50.0,
+                    child: ElevatedButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      child: RichText(
+                        text: TextSpan(
+                            text: 'REGISTER',
+                            style: GoogleFonts.barlow(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold)
+                        ),
+                      ),
+                    )
                 )
               ],
             )

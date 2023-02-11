@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/util/screen.dart';
 
@@ -21,10 +20,10 @@ class _WebAnnouncementState extends State<WebAnnouncement>
         color: Theme.of(context).colorScheme.primary,
         child: Padding(
           padding: EdgeInsets.only(
-            top: setHeight(12.5),
-            bottom: setHeight(12.5),
-            left: setWidth(12.5),
-            right: setWidth(12.5),
+            top: 12.5,
+            bottom: 12.5,
+            left: 12.5,
+            right: 12.5,
           ),
           child: Text(
               isSmall(constraints)

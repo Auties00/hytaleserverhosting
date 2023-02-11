@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/util/screen.dart';
 import 'package:hosting/src/widget/native_scroll.dart';
@@ -26,10 +25,8 @@ class PurchaseSelectPlanPageDesktop extends StatelessWidget {
     return Scaffold(
         body: Container(
           color: Theme.of(context).colorScheme.background,
-          child: SingleChildHtmlScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+          child: HtmlScrollView(
+          children: [
                 WebNavigationBar(showItems: false),
                 Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -42,7 +39,7 @@ class PurchaseSelectPlanPageDesktop extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               fontSize: 32.0)),
                       SizedBox(
-                        height: setHeight(10.0),
+                        height: 10.0,
                       ),
                       Text(
                           'Remember to select the plan that best fits your needs!',
@@ -112,7 +109,6 @@ class PurchaseSelectPlanPageDesktop extends StatelessWidget {
                     ]),
                 WebFooter()
               ],
-            ),
           )
       ),
     );
@@ -125,8 +121,7 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
     return Scaffold(
       body: Container(
           color: Theme.of(context).colorScheme.background,
-          child: ListView(
-            shrinkWrap: true,
+          child: HtmlScrollView(
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -135,7 +130,7 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                       showItems: false
                   ),
                   SizedBox(
-                    height: setHeight(50.0),
+                    height: 50.0,
                   ),
                   Text('SELECT A PLAN',
                       textAlign: TextAlign.start,
@@ -144,7 +139,7 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 32.0)),
                   SizedBox(
-                    height: setHeight(10.0),
+                    height: 10.0,
                   ),
                   Text('Remember to select the plan that best fits your needs!',
                       textAlign: TextAlign.start,
@@ -153,7 +148,7 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           fontSize: 16.0)),
                   SizedBox(
-                    height: setHeight(50.0),
+                    height: 50.0,
                   ),
                   WebPricingItem(
                     title: 'STONE',
@@ -164,7 +159,7 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                     onTap: () => Navigator.pushNamed(context, '/purchase/pay'),
                   ),
                   SizedBox(
-                    height: setHeight(25.0),
+                    height: 25.0,
                   ),
                   WebPricingItem(
                     title: 'COAL',
@@ -175,7 +170,7 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                     onTap: () => Navigator.pushNamed(context, '/purchase/pay'),
                   ),
                   SizedBox(
-                    height: setHeight(25.0),
+                    height: 25.0,
                   ),
                   WebPricingItem(
                     title: 'GOLD',
@@ -187,7 +182,7 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                     onTap: () => Navigator.pushNamed(context, '/purchase/pay'),
                   ),
                   SizedBox(
-                    height: setHeight(25.0),
+                    height: 25.0,
                   ),
                   WebPricingItem(
                     title: 'REDSTONE',
@@ -199,7 +194,7 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                     onTap: () => Navigator.pushNamed(context, '/purchase/pay'),
                   ),
                   SizedBox(
-                    height: setHeight(25.0),
+                    height: 25.0,
                   ),
                   WebPricingItem(
                     title: 'DIAMOND',
@@ -211,7 +206,7 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                     onTap: () => Navigator.pushNamed(context, '/purchase/pay'),
                   ),
                   SizedBox(
-                    height: setHeight(25.0),
+                    height: 25.0,
                   ),
                   WebPricingItem(
                     title: 'EMERALD',
@@ -222,7 +217,7 @@ class PurchaseSelectPlanPageMobile extends StatelessWidget {
                     onTap: () => Navigator.pushNamed(context, '/purchase/pay'),
                   ),
                   SizedBox(
-                    height: setHeight(50.0),
+                    height: 50.0,
                   ),
                 ],
               )

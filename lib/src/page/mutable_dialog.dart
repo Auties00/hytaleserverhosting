@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/dialog/login_dialog.dart';
-import 'package:hosting/src/dialog/register_dialog.dart';
+import 'package:hosting/src/page/register_dialog.dart';
+
+import 'login_dialog.dart';
 
 class MutableDialog extends StatefulWidget {
   final bool register;
@@ -22,7 +23,9 @@ class _MutableDialogState extends State<MutableDialog> {
 
   @override
   Widget build(BuildContext context) {
-    return _register ? RegisterDialog(onSwitch: () => setState(() => _register = false))
-        : LoginDialog(onSwitch: () => setState(() => _register = true));
+    return SelectionArea(
+      child: _register ? RegisterDialog(onSwitch: () => setState(() => _register = false))
+          : LoginDialog(onSwitch: () => setState(() => _register = true))
+    );
   }
 }

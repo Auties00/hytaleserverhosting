@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/widget/web_image.dart';
 
@@ -44,11 +43,11 @@ class WebPaymentItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(
-          width: setWidth(15.0),
+          width: 15.0,
         ),
         SizedBox(height: height, width: width, child: WebImage('$asset.png')),
         SizedBox(
-          width: setWidth(15.0),
+          width: 15.0,
         ),
         Text(name,
             textAlign: TextAlign.center,
@@ -57,7 +56,7 @@ class WebPaymentItem extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontSize: 16.0)),
         SizedBox(
-          width: setWidth(15.0),
+          width: 15.0,
         ),
       ],
     );
@@ -67,11 +66,11 @@ class WebPaymentItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: orientation == Axis.vertical
-          ? setWidth(200.0)
-          : setWidth(300.0),
+          ? 200.0
+          : 300.0,
       height: orientation == Axis.vertical
-          ? setHeight(100.0)
-          : setHeight(50.0),
+          ? 100.0
+          : 50.0,
       child: InkWell(
         onTap: onTap,
         child: Card(

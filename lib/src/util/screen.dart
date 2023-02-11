@@ -4,11 +4,11 @@ bool isMedium(var constraints) => constraints.maxWidth <= 1000;
 
 bool isSmall(var constraints) => constraints.maxWidth <= 650;
 
-ScreenType getScreenType(var constraints) => isSmall(constraints) ? ScreenType.SMALL
+ScreenType getScreenType(var constraints) => isSmall(constraints) ? ScreenType.MOBILE
     : isMedium(constraints) ? ScreenType.MEDIUM : ScreenType.DESKTOP;
 
 enum ScreenType{
   DESKTOP,
   MEDIUM,
-  SMALL
+  MOBILE
 }

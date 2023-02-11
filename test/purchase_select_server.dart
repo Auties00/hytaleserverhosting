@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/util/screen.dart';
 import 'package:hosting/src/widget/web_footer.dart';
@@ -36,7 +35,7 @@ class PurchaseSelectServerPageDesktop extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 32.0)),
                   SizedBox(
-                    height: setHeight(10.0),
+                    height: 10.0,
                   ),
                   Text('Remember to choose the closest server to you!',
                       textAlign: TextAlign.center,
@@ -45,7 +44,7 @@ class PurchaseSelectServerPageDesktop extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           fontSize: 16.0)),
                   SizedBox(
-                    height: setHeight(30.0),
+                    height: 30.0,
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -121,7 +120,7 @@ class PurchaseSelectServerPageMobile extends StatelessWidget {
                           fontSize: 32.0)),
 
                   SizedBox(
-                    height: setHeight(10.0),
+                    height: 10.0,
                   ),
 
                   Text('Remember to choose the closest server to you!',
@@ -131,7 +130,7 @@ class PurchaseSelectServerPageMobile extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                           fontSize: 16.0)),
                   SizedBox(
-                    height: setHeight(30.0),
+                    height: 30.0,
                   ),
 
                   Row(
@@ -216,7 +215,7 @@ class PurchaseSelectServerPageSmall extends StatelessWidget {
                                   fontSize: 32.0)),
 
                           SizedBox(
-                            height: setHeight(10.0),
+                            height: 10.0,
                           ),
 
                           Text('Remember to choose the closest server to you!',

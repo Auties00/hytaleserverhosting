@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/widget/web_image.dart';
 
@@ -13,15 +12,15 @@ class WebFeatureItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: setHeight(300.0),
+      width: 300.0,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
               SizedBox(
-                  width: setHeight(75.0),
-                  height: setHeight(75.0),
+                  width: 75.0,
+                  height: 75.0,
                   child: WebImage(asset, fit: BoxFit.cover)
               ),
               SizedBox(
@@ -39,7 +38,6 @@ class WebFeatureItem extends StatelessWidget {
             height: 10.0,
           ),
           Text(description,
-              maxLines: 10,
               textAlign: TextAlign.start,
               style: GoogleFonts.barlow(
                   color: Colors.grey,

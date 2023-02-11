@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hosting/src/util/dimension.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hosting/src/widget/web_image.dart';
 
@@ -33,11 +32,11 @@ class WebLocationItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(
-          width: setWidth(15.0),
+          width: 15.0,
         ),
         WebImage('${name.toLowerCase()}.png'),
         SizedBox(
-          width: setWidth(15.0),
+          width: 15.0,
         ),
         Text(name,
             textAlign: TextAlign.center,
@@ -46,7 +45,7 @@ class WebLocationItem extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 16.0)),
         SizedBox(
-          width: setWidth(15.0),
+          width: 15.0,
         ),
       ],
     );
@@ -56,8 +55,8 @@ class WebLocationItem extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return SizedBox(
-      width: orientation == Axis.vertical ? setWidth(150.0) : setWidth(300.0),
-      height: orientation == Axis.vertical ? setHeight(100.0) : setHeight(50.0),
+      width: orientation == Axis.vertical ? 150.0 : 300.0,
+      height: orientation == Axis.vertical ? 100.0 : 50.0,
       child: InkWell(
         onTap: onTap,
         child: Card(

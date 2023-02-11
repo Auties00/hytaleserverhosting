@@ -4,6 +4,8 @@ body {
     width: 100%;
     background-color: #1b1b2d;
     position: absolute;
+    overflow-x: hide;
+    overflow-y: hide;
 }
 
 .center {
